@@ -30,10 +30,10 @@ So the "full-screen pause" scenes go edge to edge on phones and tablets. On larg
 - **Mobile:** a portrait crop (focus on the hands, set on purpose) at 100svh. Logo at top-left, the word "Menu" at top-right. The same single caption line. No WhatsApp button.
 - **Motion:** the photo opens slightly zoomed (1.04) and settles to 1.0 over 1.6s. A small amount of depth on scroll, desktop only (≤6%).
 
-### 2. Manifesto — "1898 as architecture"
-- **Desktop:** a very tall ivory space (about 130vh). The numbers "1898" are set in Bodoni at a huge size (about 34vw), in a very light ink tone, and **bleed off the left edge** of the screen. Over the bottom-right quarter, one narrow column (about 26ch) of body sans: "Cinque generazioni di orafi. Eugenio Rocca, quarta. Giulio Rocca, quinta. Lo stesso laboratorio." Small captions "IV — Eugenio" and "V — Giulio" are pinned to the grid like magazine captions. No button.
-- **Mobile:** "1898" stacked as "18 / 98" over two lines at about 48vw, aligned left. The text block follows below, with a large gap.
-- **Motion:** "1898" is revealed by a slow mask from left to right (clip-path, 1.2s), once only.
+### 2. Manifesto — "A quiet introduction"
+- **Desktop:** a generous ivory space (about 90–100vh) laid out as a calm editorial spread. "Dal 1898" in Bodoni at a confident, readable size (about 9–11vw), fully on screen, aligned left. Offset lower on the right, one narrow column (about 30ch) of body sans: "Cinque generazioni di orafi. Eugenio Rocca, la quarta. Giulio Rocca, la quinta. Lo stesso laboratorio." The IV/V numerals are kept for Heritage. No button.
+- **Mobile:** "Dal 1898" on one line at about 18vw, with the text below after a large gap.
+- **Motion:** one soft mask reveal on the date, and nothing else.
 
 ### 3. Collections — "Six worlds" (the main experience)
 **Chosen idea: a sticky index of names with images that change.**
@@ -56,19 +56,19 @@ So the "full-screen pause" scenes go edge to edge on phones and tablets. On larg
 - **Mobile:** edge to edge, 4:5 crop.
 - **Motion:** a slow crossfade-in only.
 
-### 7. Personalisation — "Typographic system"
-- **Desktop:** a sticky composition about 4 screens tall. On the left, the four words stacked in Bodoni at large size: INCASTONATURA, MATERIALI, INCISIONI, TEXTURE. On the right, a fixed portrait image frame. As each word becomes active, the image crossfades and a short list of confirmed facts appears beneath the word, set in small sans:
-  - Incastonatura — pietre interne · pietre esterne
-  - Materiali — Oro 18Kt · Platino · Titanio
-  - Incisioni — nomi scritti a mano · impronte · simboli · micro-testi
-  - Texture — superfici lavorate a mano
-  - Images for now: bride (Incastonatura), texture (Materiali, Texture), neutral field for Incisioni until a close-up arrives.
+### 7. Personalisation — "Typographic system", normal scrolling
+- No sticky behaviour. Four editorial chapters that scroll normally, each with its own asymmetric layout:
+  - **Incastonatura:** the large word on the left, with the bride photo (4:5) offset right and lower. Facts: pietre interne · pietre esterne.
+  - **Materiali:** the word aligned right, with the facts set as one typographic line: Oro 18Kt · Platino · Titanio. A small 1:1 texture close-up.
+  - **Incisioni:** type only, with no image. Facts: nomi scritti a mano · impronte · simboli · micro-testi. A slot is kept for an engraving close-up later.
+  - **Texture:** the word next to a wide crop of the texture photo, at its real size. Fact: superfici lavorate a mano.
 - No numbers, no cards. One link at the end: "Personalizzazioni".
-- **Mobile:** no sticky behaviour. The four words follow each other, each with its own fact list. One image sits between the second and third word.
+- **Mobile:** the same four chapters with alternating alignment. Images full width at 4:5.
+- **Motion:** only a gentle image settle as each picture enters.
 
 ### 8. Heritage — "Monument"
 - **Desktop:** a full Racing Green field, about 160vh. The chronology is shown through size and position, not a timeline:
-  - "1898" huge at top-left (about 22vw), ivory.
+  - "1898" at monumental size at top-left (about 20–22vw), ivory. This is the only monumental use of 1898 on the page.
   - "IV" with "EUGENIO" in the middle-right, at about half that size, with one line: "Quarta generazione".
   - "V" with "GIULIO" lower-left, at the same size, with three short lines: "Quinta generazione. Formazione tra Italia e Svizzera. Esperienza con Bulgari, anni a Zurigo."
   - At the bottom, centred and small: "Oggi, padre e figlio nello stesso laboratorio." with a single champagne hairline above it.
@@ -89,7 +89,7 @@ So the "full-screen pause" scenes go edge to edge on phones and tablets. On larg
 - **Display: Bodoni Moda**, mostly at weights 400–500, upright. Italics only for photo captions, never for headline words. Large sizes use optical sizing and slightly tighter letter spacing.
 - **Text and interface: Karla** stays, for menu, body text, captions and links.
 - Cormorant Garamond is removed.
-- Scale is deliberately extreme: some scenes use type at 22–34vw, others use nothing above 15px. A shared middle size is avoided.
+- Scale varies widely but stays legible: the largest type (Heritage, about 20–22vw) is used for one moment only. Other scenes use nothing above 15px. A shared middle size is avoided.
 - Text is mostly aligned left or placed off-centre. Only scene 8's closing line is centred.
 - The small uppercase spaced labels are reduced to header, captions and the collection index. They are no longer put above every section.
 
@@ -104,8 +104,8 @@ So the "full-screen pause" scenes go edge to edge on phones and tablets. On larg
 
 1. **Mask reveal:** a clip-path opening, used on key images and the large numerals (scenes 2, 5, 8).
 2. **Gentle scale:** an image settling from 1.04–1.06 to 1.0 as it enters (scenes 1, 4).
-3. **Crossfade:** text and images changing in the sticky scenes (3, 7) and the photo pause (6).
-4. **Sticky composition:** only in Collections and Personalisation, desktop only.
+3. **Crossfade:** text and images changing in Collections and in the photo pause (6).
+4. **Sticky composition:** Collections only, desktop only. This is the page's one signature interaction.
 5. **Header state change.**
 
 The current fade-up is removed from almost everything. Body text appears without animation. There is no scroll-jacking, no text splitting, no cursor effects and no page transitions. Only transform and opacity are animated, and everything turns off when the visitor asks for reduced motion.
@@ -122,7 +122,7 @@ The current fade-up is removed from almost everything. Body text appears without
 ## What gets redesigned or removed
 
 - **Removed:** the hero headline and its italic word; the "Parliamone" heading; the large WhatsApp pill; the label-plus-headline opening of each section; the numbered personalisation list; the three-step heritage list; the fade-up on every block; Cormorant Garamond.
-- **Redesigned:** the manifesto (from a paragraph to "1898" as architecture); collections (from a staggered grid to the sticky index on desktop and swipe on mobile); craftsmanship (from a split section to a magazine feature); the emotional band (from image plus slogan to image only); personalisation (from a list to a sticky typographic system); heritage (from a timeline to a monumental composition); contact (from a call to action to a colophon); a shorter footer.
+- **Redesigned:** the manifesto (a quieter editorial introduction); collections (from a staggered grid to the sticky index on desktop and swipe on mobile); craftsmanship (from a split section to a magazine feature); the emotional band (from image plus slogan to image only); personalisation (from a list to four asymmetric editorial chapters); heritage (from a timeline to the page's one monumental chronology); contact (from a call to action to a colophon); a shorter footer.
 
 ## Building it without a template feel
 
@@ -139,8 +139,13 @@ The current fade-up is removed from almost everything. Body text appears without
 
 ## Technical notes
 
-- Fonts: replace Cormorant with Bodoni Moda (opsz axis) in the root head link; update the `--font-display` token and the type utilities; add display sizes for the 22–34vw scenes.
-- New small hooks in `use-reveal.ts`: `useInView` (data attribute for clip-path reveals), `useActiveIndex` (IntersectionObserver over plates or words for the sticky scenes), and the existing rAF parallax, kept to the hero. No libraries.
+- Fonts: replace Cormorant with Bodoni Moda (opsz axis) in the root head link; update the `--font-display` token and the type utilities; add display sizes up to about 22vw.
+- New small hooks in `use-reveal.ts`: `useInView` (data attribute for clip-path reveals), `useActiveIndex` (IntersectionObserver over the collection plates only), and the existing rAF parallax, kept to the hero. No libraries.
+- First build pass scope: homepage, header, mobile menu, footer and WhatsApp circle only. The internal pages keep their holding pages.
+
+## Guiding rule
+
+Intentional, not experimental. If an effect draws attention to itself rather than to ROCCA 1898, simplify it.
 - New `@utility` classes: `mask-reveal`, `settle`, `crossfade`, and `passe-partout` (caps an image at its native width inside a coloured mount).
 - `EditorialImage` gains `maxNativeWidth` and a `fullBleedWhenAvailable` flag. Placeholders gain the champagne corner mark.
 - Collections data in `site.ts` gains a `layout` variant per collection and `primary`/`detail` image slots.
