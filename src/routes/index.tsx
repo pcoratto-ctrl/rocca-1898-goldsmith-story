@@ -97,7 +97,8 @@ function Manifesto() {
 
 /* 3 — Collections: the strongest moment */
 function Collections() {
-  const [featured, ...rest] = collections;
+  const featured = collections[0]!;
+  const rest = collections.slice(1);
   return (
     <section aria-labelledby="collezioni-title" className="pb-[var(--section-y)] pt-[var(--section-y-sm)]">
       <div className="wrap">

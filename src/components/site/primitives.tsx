@@ -47,7 +47,7 @@ export function EditorialImage({
   zoom,
   placeholderLabel,
 }: {
-  image?: Img;
+  image?: Img | undefined;
   ratio: string;
   className?: string;
   priority?: boolean;

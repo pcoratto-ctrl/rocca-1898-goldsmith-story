@@ -112,8 +112,8 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
       if (e.key === "Escape") onClose();
       if (e.key === "Tab" && ref.current) {
         const items = ref.current.querySelectorAll<HTMLElement>("a,button");
-        const a = items[0];
-        const b = items[items.length - 1];
+        const a = items[0]!;
+        const b = items[items.length - 1]!;
         if (e.shiftKey && document.activeElement === a) {
           e.preventDefault();
           b.focus();
