@@ -10,7 +10,7 @@ export function Reveal({
   children,
 }: {
   /** Motion vocabulary: soft rise, left mask, bottom mask, image settle, crossfade. */
-  effect?: "reveal" | "mask-reveal" | "mask-reveal-up" | "settle" | "crossfade";
+  effect?: "reveal" | "unveil" | "unveil-up" | "settle" | "crossfade";
   as?: ElementType;
   className?: string;
   delay?: number;

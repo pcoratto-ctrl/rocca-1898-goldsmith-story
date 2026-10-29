@@ -353,7 +353,7 @@
 @utility type-chapter {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.5rem, 7.5vw, 7.25rem);
+  font-size: clamp(2.25rem, 6.5vw, 6.5rem);
   line-height: 0.95;
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -375,7 +375,7 @@
 }
 
 /* 1 — mask reveal (left to right) */
-@utility mask-reveal {
+@utility unveil {
   clip-path: inset(0 100% 0 0);
   transition: clip-path 1200ms var(--ease-atelier);
   &[data-visible="true"] {
@@ -387,7 +387,7 @@
 }
 
 /* 1b — mask reveal (from bottom) */
-@utility mask-reveal-up {
+@utility unveil-up {
   clip-path: inset(100% 0 0 0);
   transition: clip-path 1300ms var(--ease-atelier);
   &[data-visible="true"] {

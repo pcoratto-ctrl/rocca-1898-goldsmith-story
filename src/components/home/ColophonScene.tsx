@@ -21,26 +21,26 @@ export function ColophonScene() {
             <dt className="type-caption text-muted-foreground">Telefono</dt>
             <dd className="mt-1 flex flex-col">
               {contacts.phones.map((p) => (
-                <a key={p.tel} href={`tel:${p.tel}`} className="link-draw min-h-10 self-start">{p.display}</a>
+                <a key={p.tel} href={`tel:${p.tel}`} className="flex min-h-10 items-center self-start underline decoration-border-strong underline-offset-4 hover:decoration-current">{p.display}</a>
               ))}
             </dd>
           </div>
           <div className={row}>
             <dt className="type-caption text-muted-foreground">Email</dt>
             <dd className="mt-1">
-              <a href={`mailto:${contacts.email}`} className="link-draw break-all">{contacts.email}</a>
+              <a href={`mailto:${contacts.email}`} className="break-all underline decoration-border-strong underline-offset-4 hover:decoration-current">{contacts.email}</a>
             </dd>
           </div>
           <div className={row}>
             <dt className="type-caption text-muted-foreground">WhatsApp</dt>
             <dd className="mt-1">
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="link-draw">{contacts.whatsapp.display}</a>
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="underline decoration-border-strong underline-offset-4 hover:decoration-current">{contacts.whatsapp.display}</a>
             </dd>
           </div>
           <div className={row}>
             <dt className="type-caption text-muted-foreground">Indicazioni</dt>
             <dd className="mt-1">
-              <a href={contacts.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="link-draw">Apri in Google Maps</a>
+              <a href={contacts.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-border-strong underline-offset-4 hover:decoration-current">Apri in Google Maps</a>
             </dd>
           </div>
         </dl>

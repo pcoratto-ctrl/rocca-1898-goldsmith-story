@@ -8,13 +8,13 @@ export function HeritageScene() {
       <div className="wrap py-[var(--section-y)]">
         <h2 id="heritage-title" className="sr-only">Cinque generazioni dal 1898</h2>
 
-        <Reveal effect="mask-reveal">
+        <Reveal effect="unveil">
           <p className="type-monument" aria-hidden>1898</p>
           <p className="type-caption mt-6 text-primary-foreground/70">Tradizione orafa di famiglia</p>
         </Reveal>
 
         <div className="mt-[clamp(5rem,14vw,14rem)] flex justify-end">
-          <Reveal effect="mask-reveal" className="w-full max-w-[34rem] lg:mr-[6%]">
+          <Reveal effect="unveil" className="w-full max-w-[34rem] lg:mr-[6%]">
             <p className="type-marker">IV</p>
             <p className="type-nav mt-4 text-[clamp(0.9rem,1.2vw,1.125rem)]">Eugenio</p>
             <p className="type-caption mt-3 text-primary-foreground/70">Quarta generazione</p>
@@ -22,7 +22,7 @@ export function HeritageScene() {
         </div>
 
         <div className="mt-[clamp(5rem,12vw,12rem)] lg:ml-[14%]">
-          <Reveal effect="mask-reveal" className="max-w-[34rem]">
+          <Reveal effect="unveil" className="max-w-[34rem]">
             <p className="type-marker">V</p>
             <p className="type-nav mt-4 text-[clamp(0.9rem,1.2vw,1.125rem)]">Giulio</p>
             <p className="type-caption mt-3 max-w-[30ch] text-primary-foreground/70">

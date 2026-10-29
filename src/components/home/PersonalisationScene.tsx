@@ -11,11 +11,11 @@ export function PersonalisationScene() {
 
         {/* Incastonatura — word left, portrait offset right and lower */}
         <div className="mt-16 grid gap-y-10 lg:mt-24 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-12">
             <h3 className="type-chapter break-words">Incastonatura</h3>
             <p className="type-caption mt-6 text-muted-foreground">Pietre interne · Pietre esterne</p>
           </div>
-          <Reveal effect="settle" className="ml-auto w-[78%] lg:col-span-4 lg:col-start-9 lg:mt-40 lg:w-full">
+          <Reveal effect="settle" className="ml-auto w-[78%] lg:col-span-4 lg:col-start-8 lg:-mt-4 lg:w-full">
             <EditorialImage image={photos.sposa} ratio="4 / 5" sizes="(min-width: 1024px) 33vw, 78vw" />
           </Reveal>
         </div>
@@ -43,10 +43,10 @@ export function PersonalisationScene() {
 
         {/* Texture — word beside a wide crop */}
         <div className="mt-[var(--section-y)] grid items-center gap-y-10 lg:grid-cols-12">
-          <Reveal effect="settle" className="lg:col-span-7">
+          <Reveal effect="settle" className="lg:col-span-6">
             <EditorialImage image={photos.texture} ratio="16 / 10" position="50% 35%" sizes="(min-width: 1024px) 58vw, 100vw" className="max-w-[992px]" />
           </Reveal>
-          <div className="lg:col-span-4 lg:col-start-9">
+          <div className="lg:col-span-5 lg:col-start-8">
             <h3 className="type-chapter">Texture</h3>
             <p className="type-caption mt-6 text-muted-foreground">Superfici lavorate a mano</p>
             <Link to="/personalizzazioni" className="type-nav link-draw mt-12 gap-4">

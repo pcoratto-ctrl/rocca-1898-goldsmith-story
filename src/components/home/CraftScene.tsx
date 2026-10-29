@@ -8,7 +8,7 @@ export function CraftScene() {
     <section aria-labelledby="craft-title" className="py-[var(--section-y)]">
       <div className="lg:grid lg:grid-cols-[min(60vw,1200px)_minmax(0,1fr)] lg:gap-x-[clamp(2.5rem,5vw,6rem)]">
         <div className="relative">
-          <Reveal effect="mask-reveal-up">
+          <Reveal effect="unveil-up">
             <EditorialImage image={photos.labBn} ratio="1 / 1" sizes="(min-width: 1024px) 60vw, 100vw" />
           </Reveal>
           <Reveal
