@@ -44,7 +44,7 @@ export function useParallax<T extends HTMLElement>(strength = 0.08) {
       const rect = el.parentElement?.getBoundingClientRect();
       if (!rect || rect.bottom < 0 || rect.top > window.innerHeight) return;
       const offset = -rect.top * strength;
-      el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0) scale(1.08)`;
+      el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0) scale(1.06)`;
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
