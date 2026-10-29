@@ -376,25 +376,35 @@
 
 /* 1 — mask reveal (left to right) */
 @utility unveil {
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1200ms var(--ease-atelier);
-  &[data-visible="true"] {
+  /* Clip the children, not the observed element, so IntersectionObserver still fires. */
+  & > * {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1200ms var(--ease-atelier);
+  }
+  &[data-visible="true"] > * {
     clip-path: inset(0 0 0 0);
   }
   @media (prefers-reduced-motion: reduce) {
-    clip-path: none;
+    & > * {
+      clip-path: none;
+    }
   }
 }
 
 /* 1b — mask reveal (from bottom) */
 @utility unveil-up {
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 1300ms var(--ease-atelier);
-  &[data-visible="true"] {
+  /* Clip the children, not the observed element, so IntersectionObserver still fires. */
+  & > * {
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 1300ms var(--ease-atelier);
+  }
+  &[data-visible="true"] > * {
     clip-path: inset(0 0 0 0);
   }
   @media (prefers-reduced-motion: reduce) {
-    clip-path: none;
+    & > * {
+      clip-path: none;
+    }
   }
 }
 

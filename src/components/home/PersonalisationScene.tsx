@@ -47,7 +47,7 @@ export function PersonalisationScene() {
             <EditorialImage image={photos.texture} ratio="16 / 10" position="50% 35%" sizes="(min-width: 1024px) 58vw, 100vw" className="max-w-[992px]" />
           </Reveal>
           <div className="lg:col-span-5 lg:col-start-8">
-            <h3 className="type-chapter">Texture</h3>
+            <h3 className="type-chapter text-[clamp(2.25rem,5.5vw,5.5rem)]">Texture</h3>
             <p className="type-caption mt-6 text-muted-foreground">Superfici lavorate a mano</p>
             <Link to="/personalizzazioni" className="type-nav link-draw mt-12 gap-4">
               <span aria-hidden className="inline-block h-px w-10 bg-current" />
