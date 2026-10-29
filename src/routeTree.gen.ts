@@ -10,33 +10,80 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CollezioniRouteImport } from './routes/collezioni'
+import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as PersonalizzazioniRouteImport } from './routes/personalizzazioni'
+import { Route as StoriaRouteImport } from './routes/storia'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CollezioniRoute = CollezioniRouteImport.update({
+  id: '/collezioni',
+  path: '/collezioni',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContattiRoute = ContattiRouteImport.update({
+  id: '/contatti',
+  path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PersonalizzazioniRoute = PersonalizzazioniRouteImport.update({
+  id: '/personalizzazioni',
+  path: '/personalizzazioni',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoriaRoute = StoriaRouteImport.update({
+  id: '/storia',
+  path: '/storia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/collezioni': typeof CollezioniRoute
+  '/contatti': typeof ContattiRoute
+  '/personalizzazioni': typeof PersonalizzazioniRoute
+  '/storia': typeof StoriaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/collezioni': typeof CollezioniRoute
+  '/contatti': typeof ContattiRoute
+  '/personalizzazioni': typeof PersonalizzazioniRoute
+  '/storia': typeof StoriaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/collezioni': typeof CollezioniRoute
+  '/contatti': typeof ContattiRoute
+  '/personalizzazioni': typeof PersonalizzazioniRoute
+  '/storia': typeof StoriaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/collezioni' | '/contatti' | '/personalizzazioni' | '/storia'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/collezioni' | '/contatti' | '/personalizzazioni' | '/storia'
+  id:
+    | '__root__'
+    | '/'
+    | '/collezioni'
+    | '/contatti'
+    | '/personalizzazioni'
+    | '/storia'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CollezioniRoute: typeof CollezioniRoute
+  ContattiRoute: typeof ContattiRoute
+  PersonalizzazioniRoute: typeof PersonalizzazioniRoute
+  StoriaRoute: typeof StoriaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +95,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/collezioni': {
+      id: '/collezioni'
+      path: '/collezioni'
+      fullPath: '/collezioni'
+      preLoaderRoute: typeof CollezioniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contatti': {
+      id: '/contatti'
+      path: '/contatti'
+      fullPath: '/contatti'
+      preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/personalizzazioni': {
+      id: '/personalizzazioni'
+      path: '/personalizzazioni'
+      fullPath: '/personalizzazioni'
+      preLoaderRoute: typeof PersonalizzazioniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/storia': {
+      id: '/storia'
+      path: '/storia'
+      fullPath: '/storia'
+      preLoaderRoute: typeof StoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CollezioniRoute: CollezioniRoute,
+  ContattiRoute: ContattiRoute,
+  PersonalizzazioniRoute: PersonalizzazioniRoute,
+  StoriaRoute: StoriaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
