@@ -20,7 +20,7 @@ export function PauseScene() {
           />
         </div>
         <figcaption className="type-caption mt-4 px-[var(--gutter)] text-muted-foreground italic md:px-0">
-          Fedi Rocca, doppia esposizione
+          Doppia esposizione
         </figcaption>
       </Reveal>
     </section>
