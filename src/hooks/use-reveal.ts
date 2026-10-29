@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /** Sets data-visible="true" once the element enters the viewport. */
 export function useReveal<T extends HTMLElement>() {
@@ -44,7 +44,7 @@ export function useParallax<T extends HTMLElement>(strength = 0.08) {
       const rect = el.parentElement?.getBoundingClientRect();
       if (!rect || rect.bottom < 0 || rect.top > window.innerHeight) return;
       const offset = -rect.top * strength;
-      el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0) scale(1.08)`;
+      el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0) scale(1.06)`;
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -59,4 +59,28 @@ export function useParallax<T extends HTMLElement>(strength = 0.08) {
     };
   }, [strength]);
   return ref;
+}
+
+/**
+ * Tracks which child (marked with data-index) crosses the vertical centre
+ * of the viewport. Used by the Collections sticky index only.
+ */
+export function useActiveIndex<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const root = ref.current;
+    if (!root || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) setActive(Number((e.target as HTMLElement).dataset["index"] ?? 0));
+        }
+      },
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
+    );
+    root.querySelectorAll("[data-index]").forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+  return { ref, active };
 }

@@ -69,7 +69,7 @@ export function SiteHeader() {
                 <li key={item.to}>
                   <Link
                     to={item.to}
-                    className="type-label link-draw"
+                    className="type-nav link-draw"
                     activeProps={{ "aria-current": "page", className: "after:!scale-x-100" }}
                   >
                     {item.label}
@@ -81,7 +81,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="type-label inline-flex min-h-12 items-center gap-3 lg:hidden"
+            className="type-nav inline-flex min-h-12 items-center gap-3 lg:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
             onClick={() => setOpen((o) => !o)}
@@ -141,26 +141,26 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
       className="fixed inset-0 z-40 flex flex-col bg-background pt-[var(--header-h)] lg:hidden"
     >
       <nav aria-label="Mobile" className="wrap flex flex-1 flex-col justify-center">
-        <ul className="space-y-2">
+        <ul className="border-t border-border">
           <li>
-            <Link to="/" onClick={onClose} className="type-display-l block py-2">
+            <Link to="/" onClick={onClose} className="type-h2 block border-b border-border py-5">
               Home
             </Link>
           </li>
           {navItems.map((item) => (
             <li key={item.to}>
-              <Link to={item.to} onClick={onClose} className="type-display-l block py-2">
+              <Link to={item.to} onClick={onClose} className="type-h2 block border-b border-border py-5">
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-      <div className="wrap grid grid-cols-2 gap-4 border-t border-border py-6">
-        <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="type-label flex min-h-12 items-center">
+      <div className="wrap grid grid-cols-2 gap-4 py-6">
+        <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="type-nav flex min-h-12 items-center">
           WhatsApp
         </a>
-        <a href={`mailto:${contacts.email}`} className="type-label flex min-h-12 items-center">
+        <a href={`mailto:${contacts.email}`} className="type-nav flex min-h-12 items-center">
           Email
         </a>
       </div>

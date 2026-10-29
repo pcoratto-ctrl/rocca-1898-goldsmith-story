@@ -6,8 +6,11 @@ export function Reveal({
   as: Tag = "div",
   className,
   delay = 0,
+  effect = "reveal",
   children,
 }: {
+  /** Motion vocabulary: soft rise, left mask, bottom mask, image settle, crossfade. */
+  effect?: "reveal" | "unveil" | "unveil-up" | "settle" | "crossfade";
   as?: ElementType;
   className?: string;
   delay?: number;
@@ -15,7 +18,7 @@ export function Reveal({
 }) {
   const ref = useReveal<HTMLElement>();
   return (
-    <Tag ref={ref} className={cn("reveal", className)} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>
+    <Tag ref={ref} className={cn(effect, className)} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>
       {children}
     </Tag>
   );
