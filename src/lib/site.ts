@@ -37,16 +37,19 @@ export type Collection = {
   numeral: string;
   /** Placeholder character line until the client supplies final copy. */
   character: string;
+  /** Composition of the collection plate on the homepage. */
+  layout: "centered" | "wide" | "frontal" | "diagonal" | "grid" | "drift";
   image?: { src: string; alt: string; width: number; height: number };
+  detail?: { src: string; alt: string; width: number; height: number };
 };
 
 export const collections: Collection[] = [
-  { slug: "classic", name: "Classic", numeral: "01", character: "La forma essenziale della fede." },
-  { slug: "hollow", name: "Hollow", numeral: "02", character: "Leggerezza ricavata dal pieno." },
-  { slug: "plate", name: "Plate", numeral: "03", character: "Superfici piane, linee nette." },
-  { slug: "twist", name: "Twist", numeral: "04", character: "Due fili che si intrecciano." },
-  { slug: "square", name: "Square", numeral: "05", character: "Un profilo deciso, geometrico." },
-  { slug: "waves", name: "Waves", numeral: "06", character: "Il movimento dell'oro." },
+  { slug: "classic", name: "Classic", numeral: "01", character: "La forma essenziale della fede.", layout: "centered" },
+  { slug: "hollow", name: "Hollow", numeral: "02", character: "Leggerezza ricavata dal pieno.", layout: "wide" },
+  { slug: "plate", name: "Plate", numeral: "03", character: "Superfici piane, linee nette.", layout: "frontal" },
+  { slug: "twist", name: "Twist", numeral: "04", character: "Due fili che si intrecciano.", layout: "diagonal" },
+  { slug: "square", name: "Square", numeral: "05", character: "Un profilo deciso, geometrico.", layout: "grid" },
+  { slug: "waves", name: "Waves", numeral: "06", character: "Il movimento dell'oro.", layout: "drift" },
 ];
 
 export const personalisationAreas = [
