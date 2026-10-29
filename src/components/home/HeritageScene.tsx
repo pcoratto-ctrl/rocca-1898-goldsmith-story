@@ -14,7 +14,7 @@ export function HeritageScene() {
         </Reveal>
 
         <div className="mt-[clamp(5rem,14vw,14rem)] flex justify-end">
-          <Reveal effect="unveil" className="w-full max-w-[34rem] lg:mr-[6%]">
+          <Reveal effect="unveil" className="max-w-[34rem] text-right lg:mr-[6%] lg:text-left">
             <p className="type-marker">IV</p>
             <p className="type-nav mt-4 text-[clamp(0.9rem,1.2vw,1.125rem)]">Eugenio</p>
             <p className="type-caption mt-3 text-primary-foreground/70">Quarta generazione</p>

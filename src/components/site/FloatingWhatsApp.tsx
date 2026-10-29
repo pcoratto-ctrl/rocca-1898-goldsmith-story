@@ -39,7 +39,7 @@ export function FloatingWhatsApp() {
       aria-label="Scrivici su WhatsApp"
       tabIndex={show ? 0 : -1}
       className={cn(
-        "fixed bottom-5 right-5 z-30 grid size-12 place-items-center rounded-full bg-primary text-primary-foreground transition-[opacity,transform] duration-500 ease-atelier md:hidden",
+        "fixed bottom-5 right-5 z-30 grid size-12 place-items-center rounded-full bg-primary text-primary-foreground ring-1 ring-primary-foreground/25 transition-[opacity,transform] duration-500 ease-atelier md:hidden",
         show ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0",
       )}
     >
