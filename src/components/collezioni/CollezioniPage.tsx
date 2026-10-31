@@ -146,30 +146,40 @@ function ChapterCta({ c, className }: { c: Collection; className?: string }) {
   );
 }
 
-/** Primary 4:5 slot. Placeholder until final photography (≈2400×3000) arrives. */
+/**
+ * Primary 4:5 slot. Temporary renders sit in the final frame (object-contain,
+ * white plate matching the source background); final photography (≈2400×3000)
+ * swaps in via site.ts without layout changes.
+ */
 function Primary({ c, className, ratio = "4 / 5" }: { c: Collection; className?: string; ratio?: string }) {
   return (
     <Reveal effect="settle" className={cn(className)}>
       <EditorialImage
         image={c.primaryImage}
         ratio={ratio}
+        fit="contain"
+        className="bg-white"
         placeholderLabel={`${c.name} — fotografia in arrivo`}
-        sizes="(min-width: 1024px) 40vw, 90vw"
+        sizes="(min-width: 1024px) 50vw, 90vw"
       />
     </Reveal>
   );
 }
 
-/** Detail 1:1 slot. Temporary renders render at native size, never upscaled. */
-function Detail({ c, className, caption = true }: { c: Collection; className?: string; caption?: boolean }) {
+/** Detail 1:1 slot, same treatment at a smaller scale. */
+function Detail({ c, className }: { c: Collection; className?: string }) {
   return (
-    <div className={cn("w-full", className)} style={{ maxWidth: c.detailImage?.width ?? 240 }}>
+    <div className={cn("w-full", className)}>
       <Reveal effect="crossfade" delay={150}>
-        <EditorialImage image={c.detailImage} ratio="1 / 1" placeholderLabel="Dettaglio" sizes="240px" />
+        <EditorialImage
+          image={c.detailImage}
+          ratio="1 / 1"
+          fit="contain"
+          className="bg-white"
+          placeholderLabel="Dettaglio"
+          sizes="(min-width: 1024px) 25vw, 45vw"
+        />
       </Reveal>
-      {caption && c.detailImage && (
-        <p className="type-caption mt-3 text-muted-foreground">Modello {c.name} — fotografia temporanea</p>
-      )}
     </div>
   );
 }
@@ -184,7 +194,7 @@ function ChapterBody({ c }: { c: Collection }) {
           <Name c={c} className="mt-4" />
           <Note className="mt-4" />
           <Primary c={c} className="mt-14 w-full max-w-[26rem]" />
-          <Detail c={c} className="mt-12" />
+          <Detail c={c} className="mt-12 max-w-[20rem]" />
           <ChapterCta c={c} className="mt-12 self-center" />
         </div>
       );

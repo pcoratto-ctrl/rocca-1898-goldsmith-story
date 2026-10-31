@@ -63,13 +63,15 @@ const temp = (img: { url: string }, name: string, size: number): CollectionImage
   height: size,
 });
 
+// Temporary renders fill the final slots (mockup): primary 4:5 + detail 1:1.
+// Final photography (≈2400×3000 / ≈1600–2400) replaces these paths only.
 export const collections: Collection[] = [
-  { slug: "classic", name: "Classic", numeral: "01", character: "La forma essenziale della fede.", layout: "centered", detailImage: temp(m07, "Classic", 400) },
-  { slug: "hollow", name: "Hollow", numeral: "02", character: "Leggerezza ricavata dal pieno.", layout: "wide", detailImage: temp(m04, "Hollow", 240) },
-  { slug: "plate", name: "Plate", numeral: "03", character: "Superfici piane, linee nette.", layout: "frontal", detailImage: temp(m03, "Plate", 240) },
-  { slug: "twist", name: "Twist", numeral: "04", character: "Due fili che si intrecciano.", layout: "diagonal", detailImage: temp(m06, "Twist", 240) },
-  { slug: "square", name: "Square", numeral: "05", character: "Un profilo deciso, geometrico.", layout: "grid", detailImage: temp(m02, "Square", 240) },
-  { slug: "waves", name: "Waves", numeral: "06", character: "Il movimento dell'oro.", layout: "drift", detailImage: temp(m05, "Waves", 240) },
+  { slug: "classic", name: "Classic", numeral: "01", character: "La forma essenziale della fede.", layout: "centered", primaryImage: temp(m07, "Classic", 400), detailImage: temp(m07, "Classic", 400) },
+  { slug: "hollow", name: "Hollow", numeral: "02", character: "Leggerezza ricavata dal pieno.", layout: "wide", primaryImage: temp(m04, "Hollow", 240), detailImage: temp(m04, "Hollow", 240) },
+  { slug: "plate", name: "Plate", numeral: "03", character: "Superfici piane, linee nette.", layout: "frontal", primaryImage: temp(m03, "Plate", 240), detailImage: temp(m03, "Plate", 240) },
+  { slug: "twist", name: "Twist", numeral: "04", character: "Due fili che si intrecciano.", layout: "diagonal", primaryImage: temp(m06, "Twist", 240), detailImage: temp(m06, "Twist", 240) },
+  { slug: "square", name: "Square", numeral: "05", character: "Un profilo deciso, geometrico.", layout: "grid", primaryImage: temp(m02, "Square", 240), detailImage: temp(m02, "Square", 240) },
+  { slug: "waves", name: "Waves", numeral: "06", character: "Il movimento dell'oro.", layout: "drift", primaryImage: temp(m05, "Waves", 240), detailImage: temp(m05, "Waves", 240) },
 ];
 
 export const personalisationAreas = [

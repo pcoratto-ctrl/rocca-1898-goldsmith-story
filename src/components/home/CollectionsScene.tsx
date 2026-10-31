@@ -89,15 +89,16 @@ const slot = (c: Collection, which: "primary" | "detail") =>
   which === "primary" ? c.primaryImage : c.detailImage;
 
 function Plate({ c }: { c: Collection }) {
+  // Temporary renders fill the final slots (object-contain on white, matching
+  // the source background); final photography swaps in via site.ts only.
   const P = (cls: string, ratio = "4 / 5") => (
     <Reveal effect="settle" className={cls}>
-      <EditorialImage image={slot(c, "primary")} ratio={ratio} placeholderLabel={`${c.name} — fotografia in arrivo`} sizes="45vw" />
+      <EditorialImage image={slot(c, "primary")} ratio={ratio} fit="contain" className="bg-white" placeholderLabel={`${c.name} — fotografia in arrivo`} sizes="45vw" />
     </Reveal>
   );
-  // Detail slots are capped at 240px so temporary low-res renders never upscale.
   const D = (cls: string) => (
-    <Reveal effect="crossfade" delay={200} className={cn(cls, "max-w-[240px]")}>
-      <EditorialImage image={slot(c, "detail")} ratio="1 / 1" placeholderLabel="Dettaglio" sizes="240px" />
+    <Reveal effect="crossfade" delay={200} className={cls}>
+      <EditorialImage image={slot(c, "detail")} ratio="1 / 1" fit="contain" className="bg-white" placeholderLabel="Dettaglio" sizes="20vw" />
     </Reveal>
   );
   switch (c.layout) {
@@ -171,7 +172,7 @@ function MobileSequence() {
           <article key={c.slug} className="w-[82vw] max-w-[26rem] shrink-0 snap-start">
             <h3 className="type-index text-[clamp(2.75rem,13vw,4rem)]">{c.name}</h3>
             <div className="mt-5">
-              <EditorialImage image={c.primaryImage} ratio="4 / 5" placeholderLabel={`${c.name} — fotografia in arrivo`} sizes="82vw" />
+              <EditorialImage image={c.primaryImage} ratio="4 / 5" fit="contain" className="bg-white" placeholderLabel={`${c.name} — fotografia in arrivo`} sizes="82vw" />
             </div>
             <p className="type-caption mt-4 text-muted-foreground">{c.character}</p>
           </article>
