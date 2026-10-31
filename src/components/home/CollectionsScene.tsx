@@ -61,7 +61,7 @@ function DesktopIndex() {
             ))}
           </ol>
           <div className="relative mt-10 h-16" aria-live="polite">
-            <div key={current.slug} className="animate-in fade-in duration-700 absolute inset-0 flex items-baseline gap-6">
+            <div key={current.slug} className="animate-in fade-in duration-500 absolute inset-0 flex items-baseline gap-6">
               <span className="type-numeral text-champagne">{current.numeral}</span>
               <span className="type-caption max-w-[30ch] text-muted-foreground">{current.character}</span>
             </div>
