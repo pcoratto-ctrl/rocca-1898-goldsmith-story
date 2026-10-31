@@ -7,32 +7,36 @@ import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const overHero = pathname === "/";
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const isHome = pathname === "/";
+  // Internal pages start solid from first paint; home starts over the hero.
+  const [pastHero, setPastHero] = useState(!isHome);
+  const [morphed, setMorphed] = useState(false);
   const [open, setOpen] = useState(false);
-  const lastY = useRef(0);
 
   useEffect(() => {
-    let raf = 0;
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0;
-        const y = window.scrollY;
-        setScrolled(y > 40);
-        setHidden(y > 320 && y > lastY.current + 4 ? true : y < lastY.current - 4 ? false : (h) => h);
-        lastY.current = y;
-      });
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const hero = isHome ? document.getElementById("hero") : null;
+    if (!hero) {
+      setPastHero(true);
+      setMorphed(false);
+      return;
+    }
+    setPastHero(false);
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        const past = !entry!.isIntersecting;
+        setPastHero(past);
+        if (past) setMorphed(true);
+      },
+      // Switch as the hero's bottom edge passes under the bar.
+      { rootMargin: "-64px 0px 0px 0px", threshold: 0 },
+    );
+    io.observe(hero);
+    return () => io.disconnect();
+  }, [isHome]);
 
   useEffect(() => setOpen(false), [pathname]);
 
-  const transparent = overHero && !scrolled && !open;
+  const solid = pastHero || open;
 
   return (
     <>
@@ -43,24 +47,35 @@ export function SiteHeader() {
         Vai al contenuto
       </a>
       <header
+        data-solid={solid ? "true" : "false"}
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[transform,background-color,border-color,height] duration-500 ease-atelier",
-          transparent
-            ? "border-b border-transparent bg-transparent text-primary-foreground"
-            : "border-b border-border bg-background/95 text-foreground backdrop-blur-sm",
-          hidden && !open ? "-translate-y-full" : "translate-y-0",
+          "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,color,height] duration-[420ms] ease-atelier motion-reduce:transition-none",
+          solid
+            ? "border-border bg-background text-foreground"
+            : "border-transparent bg-transparent text-primary-foreground",
+          solid && morphed && isHome && "header-drop",
         )}
-        style={{ height: scrolled ? "var(--header-h-compact)" : "var(--header-h)" }}
+        style={{ height: solid ? "var(--header-h-solid)" : "var(--header-h)" }}
       >
         <div className="wrap grid h-full grid-cols-[minmax(0,1fr)_auto] items-center gap-6">
-          <Link to="/" className="flex min-w-0 items-center" aria-label="ROCCA 1898 — Home">
-            <img
-              src={transparent ? logoWhite.url : logo.url}
-              alt="ROCCA 1898"
-              width={150}
-              height={37.5}
-              className="h-auto w-[clamp(7.5rem,11vw,9.5rem)] shrink-0 transition-opacity duration-300"
-            />
+          <Link to="/" className="flex min-h-12 min-w-0 items-center" aria-label="ROCCA 1898 — Home">
+            <span className="relative block w-[clamp(7rem,10vw,8.75rem)] shrink-0">
+              <img
+                src={logo.url}
+                alt="ROCCA 1898"
+                width={150}
+                height={37.5}
+                className={cn("h-auto w-full transition-opacity duration-[420ms] ease-atelier motion-reduce:transition-none", solid ? "opacity-100" : "opacity-0")}
+              />
+              <img
+                src={logoWhite.url}
+                alt=""
+                aria-hidden
+                width={150}
+                height={37.5}
+                className={cn("absolute inset-0 h-auto w-full transition-opacity duration-[420ms] ease-atelier motion-reduce:transition-none", solid ? "opacity-0" : "opacity-100")}
+              />
+            </span>
           </Link>
 
           <nav aria-label="Principale" className="hidden lg:block">
@@ -69,8 +84,8 @@ export function SiteHeader() {
                 <li key={item.to}>
                   <Link
                     to={item.to}
-                    className="type-nav link-draw"
-                    activeProps={{ "aria-current": "page", className: "after:!scale-x-100" }}
+                    className={cn("type-nav link-draw text-[0.84375rem]", item.to === "/contatti" && "font-semibold")}
+                    activeProps={{ "aria-current": "page", className: "link-active" }}
                   >
                     {item.label}
                   </Link>
@@ -81,15 +96,15 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="type-nav inline-flex min-h-12 items-center gap-3 lg:hidden"
+            className="type-nav -mr-2 inline-flex min-h-12 min-w-12 items-center gap-3 px-2 lg:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
             onClick={() => setOpen((o) => !o)}
           >
             {open ? "Chiudi" : "Menu"}
             <span aria-hidden className="relative block h-3 w-6">
-              <span className={cn("absolute left-0 h-px w-6 bg-current transition-transform duration-400", open ? "top-1.5 rotate-45" : "top-0.5")} />
-              <span className={cn("absolute left-0 h-px w-6 bg-current transition-transform duration-400", open ? "top-1.5 -rotate-45" : "top-2.5")} />
+              <span className={cn("absolute left-0 h-px w-6 bg-current transition-transform duration-300", open ? "top-1.5 rotate-45" : "top-0.5")} />
+              <span className={cn("absolute left-0 h-px w-6 bg-current transition-transform duration-300", open ? "top-1.5 -rotate-45" : "top-2.5")} />
             </span>
           </button>
         </div>
@@ -138,30 +153,33 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
       aria-modal="true"
       aria-label="Menu"
       hidden={!open}
-      className="fixed inset-0 z-40 flex flex-col bg-background pt-[var(--header-h)] lg:hidden"
+      className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-background pt-[var(--header-h-solid)] lg:hidden"
     >
-      <nav aria-label="Mobile" className="wrap flex flex-1 flex-col justify-center">
+      <nav aria-label="Mobile" className="wrap flex flex-1 flex-col justify-center py-8">
         <ul className="border-t border-border">
           <li>
-            <Link to="/" onClick={onClose} className="type-h2 block border-b border-border py-5">
+            <Link to="/" onClick={onClose} className="type-h2 flex min-h-14 items-center border-b border-border py-4">
               Home
             </Link>
           </li>
           {navItems.map((item) => (
             <li key={item.to}>
-              <Link to={item.to} onClick={onClose} className="type-h2 block border-b border-border py-5">
+              <Link to={item.to} onClick={onClose} className="type-h2 flex min-h-14 items-center border-b border-border py-4">
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-      <div className="wrap grid grid-cols-2 gap-4 py-6">
-        <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="type-nav flex min-h-12 items-center">
-          WhatsApp
+      <div className="wrap grid gap-1 pb-8">
+        <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="type-caption flex min-h-12 items-center text-[0.9375rem]">
+          WhatsApp · {contacts.whatsapp.display}
         </a>
-        <a href={`mailto:${contacts.email}`} className="type-nav flex min-h-12 items-center">
-          Email
+        <a href={`tel:${contacts.phones[1].tel}`} className="type-caption flex min-h-12 items-center text-[0.9375rem]">
+          {contacts.phones[1].display}
+        </a>
+        <a href={`mailto:${contacts.email}`} className="type-caption flex min-h-12 items-center text-[0.9375rem]">
+          {contacts.email}
         </a>
       </div>
     </div>

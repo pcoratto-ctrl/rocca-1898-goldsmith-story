@@ -1,15 +1,24 @@
-import { EditorialImage, Reveal } from "@/components/site/primitives";
-import { photos } from "./images";
+/** Scene 4 — a quiet typographic material index on ink. No imagery until macro photography exists. */
+const materials = ["Oro 18Kt", "Platino", "Titanio"] as const;
 
-/** Scene 4 — a near-silent material pause on ink. */
 export function MaterialScene() {
   return (
-    <section aria-label="Dettaglio della materia" className="bg-ink text-primary-foreground">
-      <div className="wrap grid items-end gap-6 py-[var(--section-y-sm)] lg:grid-cols-12 lg:py-[var(--section-y)]">
-        <Reveal effect="settle" className="lg:col-span-5 lg:col-start-2 lg:max-w-[540px]">
-          <EditorialImage image={photos.texture} ratio="3 / 4" sizes="(min-width: 1024px) 540px, 92vw" />
-        </Reveal>
-        <p className="type-caption text-right text-primary-foreground/60 lg:col-span-2 lg:col-start-11">Oro 18Kt</p>
+    <section aria-labelledby="materiali-title" className="bg-ink text-primary-foreground">
+      <div className="wrap grid gap-10 py-[var(--section-y-sm)] lg:grid-cols-12 lg:py-[clamp(5rem,9vw,8.5rem)]">
+        <h2 id="materiali-title" className="type-caption text-primary-foreground/55 lg:col-span-2 lg:col-start-2 lg:pt-6">
+          Materiali
+        </h2>
+        <ul className="lg:col-span-7 lg:col-start-5">
+          {materials.map((m, i) => (
+            <li
+              key={m}
+              className="flex items-baseline justify-between gap-6 border-t border-champagne/25 py-[clamp(1.25rem,2.4vw,2.25rem)] last:border-b"
+            >
+              <span className="font-display text-[clamp(2.25rem,5vw,5.25rem)] leading-none tracking-[-0.01em] uppercase">{m}</span>
+              <span className="type-numeral text-primary-foreground/40">{String(i + 1).padStart(2, "0")}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
