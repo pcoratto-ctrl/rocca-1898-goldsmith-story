@@ -194,7 +194,7 @@ function ChapterBody({ c }: { c: Collection }) {
           <Name c={c} className="mt-4" />
           <Note className="mt-4" />
           <Primary c={c} className="mt-14 w-full max-w-[26rem]" />
-          <Detail c={c} className="mt-12" />
+          <Detail c={c} className="mt-12 max-w-[20rem]" />
           <ChapterCta c={c} className="mt-12 self-center" />
         </div>
       );
