@@ -48,6 +48,7 @@ export function EditorialImage({
   sizes = "100vw",
   position = "center",
   zoom,
+  fit = "cover",
   placeholderLabel,
 }: {
   image?: Img | undefined;
@@ -57,6 +58,8 @@ export function EditorialImage({
   sizes?: string;
   position?: string;
   zoom?: boolean;
+  /** "contain" keeps the whole subject visible (jewellery renders on white). */
+  fit?: "cover" | "contain";
   placeholderLabel?: string;
 }) {
   return (
@@ -75,7 +78,7 @@ export function EditorialImage({
           decoding={priority ? "sync" : "async"}
           // @ts-expect-error fetchpriority is valid HTML
           fetchpriority={priority ? "high" : "auto"}
-          className="absolute inset-0 h-full w-full object-cover"
+          className={cn("absolute inset-0 h-full w-full", fit === "contain" ? "object-contain" : "object-cover")}
           style={{ objectPosition: position }}
         />
       ) : (
