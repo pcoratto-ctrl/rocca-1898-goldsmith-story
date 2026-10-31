@@ -92,6 +92,7 @@
   --section-y-sm: clamp(3.5rem, 7vw, 6.5rem);
   --header-h: clamp(4.5rem, 6vw, 6rem);
   --header-h-compact: 4rem;
+  --header-h-solid: clamp(3.75rem, 5vw, 4.25rem);
 }
 
 @layer base {
@@ -256,24 +257,43 @@
     bottom: 0.7rem;
     height: 1px;
     background: currentColor;
-    transform: scaleX(0.35);
+    transform: scaleX(0);
     transform-origin: left;
-    transition: transform 400ms var(--ease-atelier);
+    transition: transform 300ms var(--ease-atelier);
   }
   &:hover::after,
-  &:focus-visible::after {
+  &:focus-visible::after,
+  &.link-active::after,
+  &[aria-current="page"]::after {
     transform: scaleX(1);
+  }
+}
+
+/* Header morph: -8px -> 0 when leaving the hero */
+@utility header-drop {
+  animation: header-drop 420ms var(--ease-atelier) both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes header-drop {
+  from {
+    transform: translate3d(0, -8px, 0);
+  }
+  to {
+    transform: none;
   }
 }
 
 @utility img-zoom {
   overflow: hidden;
   & img {
-    transition: transform 700ms var(--ease-atelier);
+    transition: transform 650ms var(--ease-atelier);
   }
   &:hover img,
   a:focus-visible & img {
-    transform: scale(1.03);
+    transform: scale(1.025);
   }
 }
 
@@ -379,7 +399,7 @@
   /* Clip the children, not the observed element, so IntersectionObserver still fires. */
   & > * {
     clip-path: inset(0 100% 0 0);
-    transition: clip-path 1200ms var(--ease-atelier);
+    transition: clip-path 1000ms var(--ease-atelier);
   }
   &[data-visible="true"] > * {
     clip-path: inset(0 0 0 0);
@@ -396,7 +416,7 @@
   /* Clip the children, not the observed element, so IntersectionObserver still fires. */
   & > * {
     clip-path: inset(100% 0 0 0);
-    transition: clip-path 1300ms var(--ease-atelier);
+    transition: clip-path 1000ms var(--ease-atelier);
   }
   &[data-visible="true"] > * {
     clip-path: inset(0 0 0 0);

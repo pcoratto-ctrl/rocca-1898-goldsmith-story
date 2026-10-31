@@ -51,7 +51,7 @@ function DesktopIndex() {
                   onClick={() => go(i)}
                   aria-current={i === active ? "true" : undefined}
                   className={cn(
-                    "type-index block py-1 text-left transition-colors duration-700 ease-atelier",
+                    "type-index block py-1 text-left transition-colors duration-500 ease-atelier",
                     i === active ? "text-foreground" : "text-foreground/15 hover:text-foreground/40",
                   )}
                 >
