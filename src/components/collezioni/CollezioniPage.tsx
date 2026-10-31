@@ -149,7 +149,7 @@ function ChapterCta({ c, className }: { c: Collection; className?: string }) {
 /** Primary 4:5 slot. Placeholder until final photography (≈2400×3000) arrives. */
 function Primary({ c, className, ratio = "4 / 5" }: { c: Collection; className?: string; ratio?: string }) {
   return (
-    <Reveal effect="settle" className={className}>
+    <Reveal effect="settle" className={cn(className)}>
       <EditorialImage
         image={c.primaryImage}
         ratio={ratio}
