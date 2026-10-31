@@ -27,8 +27,9 @@ export function SiteHeader() {
         setPastHero(past);
         if (past) setMorphed(true);
       },
-      // Switch as the hero's bottom edge passes under the bar.
-      { rootMargin: "-64px 0px 0px 0px", threshold: 0 },
+      // Switch only when the hero's bottom edge leaves the top of the
+      // viewport — no pixel threshold, no ivory bar while inside the hero.
+      { rootMargin: "0px", threshold: 0 },
     );
     io.observe(hero);
     return () => io.disconnect();
