@@ -573,3 +573,13 @@
     }
   }
 }
+
+/* Reduced chapter word (one step below type-chapter-l) */
+@utility type-chapter-s {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.8vw, 3.75rem);
+  line-height: 1;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}

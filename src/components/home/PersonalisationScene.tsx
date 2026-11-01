@@ -16,7 +16,7 @@ export function PersonalisationScene() {
         {/* Incastonatura — the lead chapter: reduced display word, portrait offset right and lower */}
         <div className="mt-16 grid gap-y-10 lg:mt-24 lg:grid-cols-12">
           <div className="lg:col-span-12">
-            <h3 className="type-chapter break-words">Incastonatura</h3>
+            <h3 className="type-chapter-s break-words">Incastonatura</h3>
             <p className="type-caption mt-6 text-muted-foreground">Pietre interne · Pietre esterne</p>
           </div>
           <Reveal effect="settle" className="ml-auto w-[78%] lg:col-span-4 lg:col-start-8 lg:-mt-4 lg:w-full">
