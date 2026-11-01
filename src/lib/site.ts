@@ -27,6 +27,7 @@ export function whatsappLink(message?: string) {
 // Public navigation: only destinations with a designed page.
 export const navItems = [
   { to: "/collezioni", label: "Collezioni" },
+  { to: "/fedi-matrimonio", label: "Matrimonio" },
   { to: "/storia", label: "Storia" },
   { to: "/contatti", label: "Contatti" },
 ] as const;
@@ -37,7 +38,7 @@ export const navItems = [
  */
 export const siteArchitecture = [
   { to: "/collezioni", label: "Collezioni", title: "Collezioni", live: true },
-  { to: "/fedi-matrimonio", label: "Matrimonio", title: "Fedi & Matrimonio", live: false },
+  { to: "/fedi-matrimonio", label: "Matrimonio", title: "Fedi & Matrimonio", live: true },
   { to: "/laboratorio-su-misura", label: "Laboratorio", title: "Laboratorio & Su misura", live: false },
   { to: "/storia", label: "Storia", title: "La nostra storia", live: true },
   { to: "/servizi", label: "Servizi", title: "Servizi", live: false },

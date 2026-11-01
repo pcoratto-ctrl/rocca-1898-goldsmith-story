@@ -1,4 +1,5 @@
-import { Reveal } from "@/components/site/primitives";
+import { Link } from "@tanstack/react-router";
+import { EditorialAction, Reveal } from "@/components/site/primitives";
 import { photos } from "./images";
 
 /** Scene 6 — turning the page. Photography only, at native width. */
@@ -23,6 +24,11 @@ export function PauseScene() {
           Doppia esposizione
         </figcaption>
       </Reveal>
+      <div className="mx-auto mt-8 flex max-w-[1170px] justify-end px-[var(--gutter)] md:px-0">
+        <Link to="/fedi-matrimonio">
+          <EditorialAction>Fedi &amp; Matrimonio</EditorialAction>
+        </Link>
+      </div>
     </section>
   );
 }
