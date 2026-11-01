@@ -1,53 +1,108 @@
-# Phase D2 — /laboratorio-su-misura
+# Phase D3 — /storia
 
-A tactile, technical atelier page: the bench, the tools, the hand. It is quieter and more documentary than /fedi-matrimonio. It uses no wedding imagery and no collection renders. All copy uses confirmed facts only.
+ROCCA 1898: five generations of a family goldsmith tradition, from 1898 to Eugenio and Giulio working together today. The page is a documentary editorial feature. It has no timeline, no rail, no dots and no cards. Every line comes from the confirmed facts.
 
-## Photography (real sizes, never enlarged)
+## 1. Page sequence
 
-| Role | Image | Native | Max display |
-|---|---|---|---|
-| Primary workshop | laboratorio-lavorazione-bn | 1200×1200 | up to 1200px, square |
-| Bench work (secondary) | lavorazione-artigianale-banco | 600×315 | 600px wide, landscape strip |
-| Flame detail | laboratorio-fiamma | 551×688 | about 275px inset |
-| Finishing / polishing | lucidatura-laboratorio | 480×640 | 480px, 3:4 |
-| Finished result / pause | mani-con-fedi-verticale | 516×916 | 516px, centred on ivory |
-| Material detail | texture-fedi-oro | 992×1404 | about 280px inset |
-| Personalisation refs | diamanti 240, impronta 252, microtesto 252 | — | shown at about 1× (≤252px), square |
+1. Opening: 1898
+2. Origine: the beginning
+3. IV: Eugenio
+4. V: Giulio
+5. Italia / Svizzera
+6. Oggi: father and son (the one green surface)
+7. Shared contact colophon (unchanged)
 
-The bench photo is only 600px wide, so it is never shown full width. It sits as a documentary print beside text.
+## 2–3. Composition per chapter (desktop / mobile)
 
-## Page sequence
+**1. Opening (ivory).**
+- Desktop (1440/1280): on the left (6 columns), a small Karla label "ROCCA 1898" with a green hairline. Below it, a very large Bodoni "1898". Below that, a Karla line "Tradizione orafa di famiglia". On the right (5 columns, set slightly lower), the black-and-white bench photo, cropped tall at 4:5.
+- 1024/768: the date stays left, and the photo shrinks to 5 columns.
+- 390: label, then 1898 across almost the full width, then the line. The photo sits offset right at about 85% width, so the stack is not centred.
 
-1. **Opening.** Left (5 columns): small "ROCCA 1898" label with a hairline, then the title "Laboratorio & Su misura" in Bodoni, the page's one display moment. Right (7 columns): the black-and-white bench photo, square. The flame photo sits as a small inset, overlapping the lower edge. On mobile the title comes first, then the square photo edge to edge, then the flame inset offset right.
-2. **Al banco.** The bench-work photo at 600px beside a short confirmed line: "Ogni fede nasce a mano, nel laboratorio di famiglia, dove Eugenio e Giulio Rocca lavorano fianco a fianco." Below it, a caption in technical style: "Eugenio e Giulio Rocca, laboratorio di Lamezia Terme". No heading paragraph block.
-3. **Su misura: a technical sheet.** A ruled table in Karla. This is the atelier signature, like a workshop job sheet. Each row has a code (01–04), a name and a confirmed note, on hairline rows:
-   - 01 Incastonatura: Pietre interne o esterne, with the diamanti reference (240px) in the row
-   - 02 Incisioni: Nomi scritti a mano · Impronte · Simboli · Micro-testi, with the impronta and microtesto references (252px) side by side
-   - 03 Texture: Superfici lavorate a mano, with the texture inset (about 280px, 4:5)
-   - 04 Materiali: Oro 18Kt · Platino · Titanio (text only)
+**2. Origine (ivory, no image).**
+- Desktop: one Karla sentence set at lead size, starting at column 7. Wide empty space sits to the left. A fine hairline draws in above it.
+- 390: the sentence is right-aligned to about 80% width, with the hairline above it.
+- Leaving out a photo here is deliberate: we have no archive pictures and we will not make one up.
 
-   The reference images sit at the right end of each row, at native size, framed with a thin hairline like specimen cards. On mobile each row stacks: code + name, note, then the images in a row.
-4. **Finitura.** The polishing photo (480px, 3:4) on the left, with the label "LUCIDATURA" set to its right in Karla capitals and a short vertical hairline. The label comes from the confirmed services list. No invented description.
-5. **Pause / finished result.** The vertical hands-with-rings photo, centred at 516px on ivory. No caption beyond alt text.
-6. **Contact ending.** The shared contact colophon, unchanged.
+**3. IV: Eugenio (ivory).**
+- Desktop: a green Bodoni "IV" on the far left, and the name EUGENIO in Karla capitals with the line "Quarta generazione". On the right is a 4:5 portrait slot for Eugenio. Until the photoshoot it is a silent neutral field. A small unframed flame photo (about 275px) sits at its lower corner as a workshop detail, so it is not mistaken for a portrait.
+- 390: the IV and the name sit on one line, then the field at 70% width aligned left, then the flame inset offset right.
 
-## Visual language (differs from Matrimonio)
-- More rules and grids: hairline tables, codes 01–04 in tabular Karla (not Bodoni numerals), small technical captions.
-- Bodoni appears once only (the title).
-- Racing Green appears only in the opening hairline, the row codes and link hovers. There are no green surfaces except the footer.
-- Motion: existing Reveal effects only (unveil on the opening photo, crossfade on insets). Text is not animated.
+**4. V: Giulio (ivory, the stronger chapter).**
+- Desktop: a green Bodoni "V" set larger than the IV, with GIULIO and "Quinta generazione". To its right is a narrow ruled column of four Karla rows on hairlines: Italia · Svizzera · Bulgari · Zurigo. Each row has one short confirmed note: "Formazione", "Formazione", "Esperienza", "Anni di lavoro". The 4:5 portrait slot sits on the opposite side from Eugenio's, so the two chapters mirror each other.
+- 390: V and the name, then the four ruled rows full width, then the portrait field right-aligned.
+- Bulgari appears as plain text only, with no logo.
 
-## Going live
-- Set `/laboratorio-su-misura` to live and add "Laboratorio" to the header, mobile menu and footer after Matrimonio.
-- Show the hidden "Il laboratorio" action on /fedi-matrimonio. Point the homepage Su misura/Texture link here (instead of /personalizzazioni), and add a link from the homepage workshop scene.
-- Make `/personalizzazioni` redirect to this page.
-- Give the page its own Italian title and description, with no share image.
+**5. Italia / Svizzera (ivory, typographic).**
+- Desktop: ITALIA in Karla capitals at chapter size on the left and SVIZZERA on the right, on the same baseline. They are separated by one long champagne hairline. Below, centred and narrow, is the confirmed sentence: "Il laboratorio unisce la tradizione artigianale italiana alle tecniche e agli standard conosciuti nei grandi distretti europei della gioielleria." To one side is a small texture inset (about 240px).
+- 390: ITALIA left-aligned, the hairline, SVIZZERA right-aligned, then the sentence, then the inset.
 
-## Technical notes
-- Route `src/routes/laboratorio-su-misura.tsx`; page in `src/components/laboratorio/LaboratorioPage.tsx`, reading from `site.ts` (`personalisationAreas`, `services`).
-- Upload `lavorazione-artigianale-banco`, `lucidatura-laboratorio`, `mani-con-fedi-verticale` and the three personalisation references with lovable-assets, and add them to `photos` with their real sizes.
-- All images go through `EditorialImage` with max-width caps equal to native width.
-- Update AGENTS.md (new page module) and add a routing test for the page.
+**6. Oggi (Racing Green surface, option B).**
+- Desktop: a small champagne label "OGGI · LAMEZIA TERME". On the left is a wide slot for the future portrait of father and son at the bench. Until then it shows the bench-work photo at its real 600px width, framed in ivory as a print. On the right is the closing statement in Bodoni at chapter size, in ivory: "Eugenio e Giulio Rocca lavorano insieme nello stesso laboratorio di famiglia."
+- 390: label, then the statement, then the print full width (capped at 600px).
 
-## Open points
-- The page has no confirmed text about polishing beyond the word "Lucidatura". The label stands alone unless you provide a sentence.
+**7. Colophon:** shared and unchanged.
+
+## 4. Images assigned now
+
+| Chapter | Image | Note |
+|---|---|---|
+| Opening | laboratorio-lavorazione-bn | Different crop (tall 4:5) and smaller than on Laboratorio and the homepage |
+| Origine | none | Deliberate |
+| IV | neutral field + laboratorio-fiamma (small) | The field waits for the portrait |
+| V | neutral field | Waits for the portrait |
+| Italia/Svizzera | texture-fedi-oro (small) | Black background; can be removed |
+| Oggi | lavorazione-artigianale-banco (600px) | Waits for the father-and-son photo |
+
+No wedding photos and no collection images.
+
+## 5. Photos needed from the shoot
+1. Eugenio portrait (4:5)
+2. Giulio portrait (4:5)
+3. Eugenio and Giulio together at the bench (Oggi slot, 3:2)
+4. A wide portrait of the workshop (could replace the Opening photo)
+5. A detail of hands and tools (could replace the flame inset)
+6. Optional: family or archive material, only if the client supplies it
+
+Each photo goes into an existing slot, with no redesign.
+
+## 6. Typography
+- Bodoni: the opening 1898, the IV and V numerals, and the Oggi statement. That makes three moments, each at a different size.
+- Karla: names, places, notes, labels, captions and the Origine and Italia/Svizzera sentences.
+
+## 7. Racing Green
+- One surface: the Oggi chapter.
+- Accents: the opening hairline, the IV and V numerals, and link hovers.
+- Option A (a green 1898) is not used, so the opening does not copy the homepage Heritage section.
+
+## 8. Copy (confirmed only)
+- "ROCCA 1898" / "1898" / "Tradizione orafa di famiglia"
+- "La tradizione orafa della famiglia Rocca ha inizio nel 1898."
+- "IV · Eugenio · Quarta generazione"
+- "V · Giulio · Quinta generazione"; Italia, Svizzera (Formazione); Bulgari (Esperienza); Zurigo (Anni di lavoro)
+- Italia / Svizzera sentence (above)
+- "Oggi · Lamezia Terme" + "Eugenio e Giulio Rocca lavorano insieme nello stesso laboratorio di famiglia."
+
+## 9. Sections with no paragraph
+Opening, IV, V and Oggi. Origine and Italia/Svizzera carry a single sentence each.
+
+## 10–11. Components
+- Reused: `EditorialImage`, `Reveal` (unveil on photos, settle on insets, hairline draw), `SectionLabel`, `ColophonScene`.
+- New: `src/components/storia/StoriaPage.tsx`, holding one function per chapter, plus a `PortraitSlot` (a fixed 4:5 frame that shows the neutral field until an image is given). Portrait image fields go in `site.ts` (`family.eugenio.portrait`, etc.), left empty for now.
+
+## 12. Overlap with Home and Laboratorio
+- The black-and-white bench photo appears on all three pages. Here it uses a different crop and size, and it moves out once the workshop portrait arrives.
+- The flame and bench-work photos also appear on Laboratorio. Here they play different roles (an inset under the portrait slot, and a print inside the green surface).
+- The homepage Heritage section (green, 1898, IV/V) is the closest relative. Here 1898 sits on ivory, IV and V are not on green, and the green is used for "Oggi".
+- The Oggi sentence also appears on the homepage and on Laboratorio. It is the confirmed wording, and on this page it is the closing statement.
+
+## 13. Risks
+- Two empty portrait fields can look unfinished. Mitigation: hairline-framed, deliberate proportions, and the flame inset next to Eugenio's. Option: hide both fields until the shoot (tell me which you prefer).
+- The giant 1898 at 390px needs a fluid size cap so it does not run off the screen.
+- The note words (Formazione / Esperienza / Anni di lavoro) are rewordings of the confirmed facts. They can be removed so only the four place names remain.
+- I will verify 1440/1280/1024/768/390, motion off and keyboard focus.
+
+## Site integration
+- `src/routes/storia.tsx` replaces the holding page and gets a new Italian title and description, with no share image.
+- The homepage "La nostra storia" link and the footer already point to /storia, so no other page changes.
+- Add a routing test and update AGENTS.md.
