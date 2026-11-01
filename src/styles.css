@@ -447,7 +447,7 @@
 /* 3 — crossfade */
 @utility crossfade {
   opacity: 0;
-  transition: opacity 900ms var(--ease-atelier);
+  transition: opacity 500ms var(--ease-atelier);
   &[data-visible="true"] {
     opacity: 1;
   }

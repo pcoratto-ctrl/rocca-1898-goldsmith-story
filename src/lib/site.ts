@@ -74,6 +74,14 @@ export const collections: Collection[] = [
   { slug: "waves", name: "Waves", numeral: "06", character: "Il movimento dell'oro.", layout: "drift", primaryImage: temp(m05, "Waves", 240), detailImage: temp(m05, "Waves", 240) },
 ];
 
+/**
+ * The detail slot shows only when it holds a different asset than the primary
+ * image. Temporary mockup renders reuse the same file, so the detail stays
+ * hidden until separate detail/macro photography arrives.
+ */
+export const hasDistinctDetail = (c: Collection): boolean =>
+  !!c.detailImage && c.detailImage.src !== c.primaryImage?.src;
+
 export const personalisationAreas = [
   { name: "Incastonatura", note: "Pietre interne o esterne" },
   { name: "Materiali", note: "Oro 18Kt · Platino · Titanio" },

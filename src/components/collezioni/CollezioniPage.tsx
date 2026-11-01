@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ColophonScene } from "@/components/home/ColophonScene";
 import { photos } from "@/components/home/images";
 import { EditorialImage, Reveal, SectionLabel } from "@/components/site/primitives";
-import { collections, whatsappLink, type Collection } from "@/lib/site";
+import { collections, hasDistinctDetail, whatsappLink, type Collection } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -166,8 +166,13 @@ function Primary({ c, className, ratio = "4 / 5" }: { c: Collection; className?:
   );
 }
 
-/** Detail 1:1 slot, same treatment at a smaller scale. */
+/**
+ * Detail 1:1 slot, same treatment at a smaller scale. Hidden while it holds
+ * the same temporary render as the primary image; it reappears automatically
+ * once separate detail/macro photography is assigned in site.ts.
+ */
 function Detail({ c, className }: { c: Collection; className?: string }) {
+  if (!hasDistinctDetail(c)) return null;
   return (
     <div className={cn("w-full", className)}>
       <Reveal effect="crossfade" delay={150}>

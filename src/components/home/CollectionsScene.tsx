@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { EditorialImage, Reveal } from "@/components/site/primitives";
 import { useActiveIndex } from "@/hooks/use-reveal";
-import { collections, type Collection } from "@/lib/site";
+import { collections, hasDistinctDetail, type Collection } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { photos } from "./images";
 
@@ -50,22 +50,21 @@ function DesktopIndex() {
                   type="button"
                   onClick={() => go(i)}
                   aria-current={i === active ? "true" : undefined}
-                  className={cn(
-                    "type-index block py-1 text-left transition-colors duration-500 ease-atelier",
-                    i === active ? "text-foreground" : "text-foreground/15 hover:text-foreground/40",
-                  )}
+                   className={cn(
+                     "type-index block py-1 text-left transition-colors duration-500 ease-atelier",
+                     i === active ? "text-foreground" : "text-foreground/30 hover:text-foreground/50",
+                   )}
                 >
                   {c.name}
                 </button>
               </li>
             ))}
           </ol>
-          <div className="relative mt-10 h-16" aria-live="polite">
-            <div key={current.slug} className="animate-in fade-in duration-500 absolute inset-0 flex items-baseline gap-6">
-              <span className="type-numeral text-champagne">{current.numeral}</span>
-              <span className="type-caption max-w-[30ch] text-muted-foreground">{current.character}</span>
-            </div>
-          </div>
+           <div className="relative mt-10 h-16" aria-live="polite">
+             <div key={current.slug} className="animate-in fade-in duration-500 absolute inset-0 flex items-baseline gap-6">
+               <span className="type-numeral text-champagne">{current.numeral}</span>
+             </div>
+           </div>
         </div>
       </div>
       <div className="col-span-7">
@@ -96,11 +95,13 @@ function Plate({ c }: { c: Collection }) {
       <EditorialImage image={slot(c, "primary")} ratio={ratio} fit="contain" className="bg-white" placeholderLabel={`${c.name} — fotografia in arrivo`} sizes="45vw" />
     </Reveal>
   );
-  const D = (cls: string) => (
-    <Reveal effect="crossfade" delay={200} className={cls}>
-      <EditorialImage image={slot(c, "detail")} ratio="1 / 1" fit="contain" className="bg-white" placeholderLabel="Dettaglio" sizes="20vw" />
-    </Reveal>
-  );
+   // Detail slot hidden while it holds the same temporary render as the primary.
+   const D = (cls: string) =>
+     hasDistinctDetail(c) ? (
+       <Reveal effect="crossfade" delay={200} className={cls}>
+         <EditorialImage image={slot(c, "detail")} ratio="1 / 1" fit="contain" className="bg-white" placeholderLabel="Dettaglio" sizes="20vw" />
+       </Reveal>
+     ) : null;
   switch (c.layout) {
     case "centered":
       return (
@@ -168,15 +169,14 @@ function MobileSequence() {
         className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-[var(--gutter)] px-[var(--gutter)]"
         aria-label="Collezioni, scorri lateralmente"
       >
-        {collections.map((c) => (
-          <article key={c.slug} className="w-[82vw] max-w-[26rem] shrink-0 snap-start">
-            <h3 className="type-index text-[clamp(2.75rem,13vw,4rem)]">{c.name}</h3>
-            <div className="mt-5">
-              <EditorialImage image={c.primaryImage} ratio="4 / 5" fit="contain" className="bg-white" placeholderLabel={`${c.name} — fotografia in arrivo`} sizes="82vw" />
-            </div>
-            <p className="type-caption mt-4 text-muted-foreground">{c.character}</p>
-          </article>
-        ))}
+         {collections.map((c) => (
+           <article key={c.slug} className="w-[82vw] max-w-[26rem] shrink-0 snap-start">
+             <h3 className="type-index text-[clamp(2.75rem,13vw,4rem)]">{c.name}</h3>
+             <div className="mt-5">
+               <EditorialImage image={c.primaryImage} ratio="4 / 5" fit="contain" className="bg-white" placeholderLabel={`${c.name} — fotografia in arrivo`} sizes="82vw" />
+             </div>
+           </article>
+         ))}
       </div>
       <div className="wrap mt-8 flex items-center gap-4">
         <span className="type-numeral text-champagne">{String(i + 1).padStart(2, "0")}</span>
