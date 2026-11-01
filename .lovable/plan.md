@@ -1,145 +1,122 @@
-# ROCCA 1898 — Final art-direction phase
+# ROCCA 1898 — Final art-direction phase (revised)
 
-## Audit of the current build
+Guiding test: with all motion disabled, the site must still read as "clearly ROCCA 1898". It should be carried by 1898, Racing Green, the jewellery, the family, the workshop and the six named collections, not by luxury typography.
 
-What works and stays: the full-screen photo Hero with the white logo over it, the header switch exactly at the bottom of the Hero, the workshop photo scene, the standalone wedding photo (PauseScene), the green Heritage chronology, the green Materials index, Bodoni Moda + Karla, the ivory palette, and the restrained motion tokens.
+## Confirmed content added in this revision
+- **Services:** Co-creazione, Lucidatura, Aggiornamenti, Certificato, Packaging. Names only; no descriptions until the client approves them.
+- **Wedding process:** Ascolto e consulenza → Scelta modello/materiale → Personalizzazioni → Realizzazione artigianale → Consegna e cura.
+- Both lists are added to the site's single content source (`site.ts`) and saved to project memory as brand facts.
 
-What still looks like a template:
-- Collections on the homepage use a sticky list of names with six different plate layouts. It is clever, but the jewellery is not the interface. On mobile it is a swipe row with very large names.
-- "fotografia in arrivo" / "Descrizione in arrivo" still appear: on placeholders (homepage and /collezioni) and as a note in every /collezioni chapter.
-- The six character lines ("La forma essenziale della fede." and the rest) are still in the data. They no longer show on screen but they would come back if anyone used the field.
-- "Richiedi informazioni" is repeated six times on /collezioni.
-- Display type is still too big too often: "Parliamone." on Contatti, the holding pages, and "Incastonatura" plus the heritage numerals on Home.
-- Navigation has 4 items and /personalizzazioni is a holding page. There are no Matrimonio, Laboratorio or Servizi areas yet.
-- Green footer: already done. Green manifesto "Dal 1898": already done.
+## What stays exactly as it is
+Hero, the header switch at the bottom edge of the Hero, Dal 1898, the green Materials scene, the Workshop scene, the wedding photograph, the four Personalisation chapters, the green Heritage scene, the Colophon, the green footer, Bodoni Moda + Karla, and the motion timings.
 
-## 1. Exact homepage changes
+## Homepage order
+Hero → Dal 1898 → Collection plates → Materials → Workshop → Fedi & Matrimonio → Su misura → Heritage → **Services** → Colophon → Footer.
 
-Final order: Hero → Dal 1898 → Collection plates → Materials → Workshop → Fedi & Matrimonio → Su misura → Heritage → Services preview → Colophon → Footer.
+## Racing Green rhythm
+Green fills the background in three places only: Materials, Heritage and the footer. It appears as a detail in three places: the green "Dal 1898", the hover/focus line on the collection plates, and the small Materiali heading. Everything else stays ivory or photographic. Two green backgrounds never sit next to each other.
 
-- Hero, Manifesto, Materials, Workshop (CraftScene), Heritage, Colophon: no changes. Only the Workshop link becomes an editorial action (type B).
-- Collections: replace the current scene with a new grid of plates (section 2). The panoramic photo above it is removed from Home and kept only on /collezioni.
-- Fedi & Matrimonio: the existing wedding photo scene, plus one editorial action, "Fedi & Matrimonio", linking to /fedi-matrimonio. No new copy.
-- Su misura: the existing four Personalisation chapters stay. Their closing link now points to /laboratorio-su-misura.
-- Services preview (new): Karla only, ivory, a plain list. **Blocked: there are no confirmed services.** The rules forbid inventing services, so this scene is built only once the client supplies the list. Until then it is left out of the page (not shown with placeholder text).
+## Collection plates: a vitrine, not product cards
+- Desktop shows 3×2, tablet 2 columns, mobile 1 column. It is technically a grid, but it should read as one continuous photographic field:
+  - very tight gutters (about 2–4px, or a shared field split only by tone);
+  - generous whitespace around the whole block;
+  - aligned to the main site grid;
+  - no border, shadow, rounded corners or box styling.
+- Default state:
+  - a 1:1 field with the jewellery suspended in negative space (object-contain);
+  - a tiny numeral and a restrained name in Karla small caps, with Bodoni kept out so the name never competes with the ring;
+  - no description and no button.
+- The whole square is one link to its chapter on /collezioni.
+- Hover and keyboard focus (600ms, atelier easing):
+  - the ring scales from 1 to 1.035;
+  - the name strengthens;
+  - a 1px Racing Green line draws along one edge;
+  - a small line/arrow cue appears;
+  - the image crossfades to the detail photo only when `primaryImage` and `detailImage` are different files. Otherwise only the primary shows, with no fake second image.
+- Mobile: full-width squares with the whole square as the tap target. The green line shows as brief press feedback, then the page moves.
+- Reduced motion: no scale and no crossfade.
+- Wide-desktop check: at 1440px and above, compare a tight gutter with a 2rem gutter on screen and keep whichever reads less like a shop grid.
+- The panoramic photo leaves the homepage. It stays only as the opening of /collezioni.
+- One editorial action below the plates: "Tutte le collezioni".
 
-## 2. Collections interaction design
+## Temporary images
+They are shown at the final intended scale: never shrunk, never blurred, sharpened or filtered. A separate image enhancement pass happens later. Swapping the file paths for final photography turns on the full experience (including the detail crossfade) with no layout change.
 
-A new grid component replaces CollectionsScene.
+## Services preview (homepage)
+- Warm ivory, Karla only.
+- The five names as a numbered list (01–05) separated by fine hairlines.
+- No icons, cards or text.
+- One editorial action, "Servizi", appears only once /servizi is a real page.
 
-Each plate:
-- 1:1 square on an ivory/neutral field (`bg-surface`). The jewellery is centred with object-contain. No radius, no shadow.
-- The numeral sits small, top-left, in Karla in the muted colour. The name sits bottom-left in Bodoni, at a modest size (not display size).
-- The whole square is one link to `/collezioni#collezione-{slug}`, with an aria-label of the name.
+## Fedi & Matrimonio / Su misura on the homepage
+- The wedding photo gets one editorial action, "Fedi & Matrimonio", once that page is live.
+- The Su misura closing link targets /laboratorio-su-misura once live. Until then it keeps its current target.
 
-Desktop hover and keyboard focus (600ms, atelier easing):
-- The jewellery scales from 1 to 1.035.
-- The name goes from foreground/70 to full foreground.
-- A 1px Racing Green rule draws along the bottom edge, from left to right.
-- A small arrow line appears next to the name.
-- If `hasDistinctDetail(c)` is true, the image crossfades to the detail photo (500ms). If not, there is no crossfade and no faked second image.
+## Typography
+- Large Bodoni only for: the Hero, "Dal 1898", the Heritage dates, and one title per page.
+- No scene gets a display title just because there is room for one.
+- "Incastonatura" drops to the chapter size.
+- "Parliamone." drops one step.
+- Karla carries facts, controls, services, captions, navigation and labels.
+- No body text is animated.
 
-No second CTA below the grid, except one editorial action, "Tutte le collezioni".
+## Link system (three families only)
+- **A. Navigation:** small, with the existing active underline.
+- **B. Editorial action:** text plus a short line that extends on hover (one shared component).
+- **C. Contact:** WhatsApp, phone, email (existing).
+- On /collezioni, the six repeated "Richiedi informazioni" links become a single quiet WhatsApp link per dossier plus the shared Colophon.
 
-Click: moves to /collezioni and scrolls to that collection's chapter (the existing scroll offset handles the header and the sticky index).
+## Navigation and routes
+- Final routes: /collezioni, /fedi-matrimonio, /laboratorio-su-misura, /storia, /servizi, /contatti.
+- Labels: COLLEZIONI · MATRIMONIO · LABORATORIO · STORIA · SERVIZI · CONTATTI.
+- **No public holding pages.** A label appears in the header, mobile menu and footer only when its page has a real designed structure. The new routes are prepared internally and added to the menu as each page is finished.
+- /personalizzazioni redirects permanently to /laboratorio-su-misura once that page is live.
+- Behaviour is unchanged: transparent over the Hero, solid ivory after it, never hidden. The mobile menu is full-height. The width of six labels gets checked at 1024px; if they don't fit, that size falls back to the menu.
 
-## 3. Desktop / tablet / mobile
+## Phases
+- **A — Foundation cleanup**
+  - Remove from the screen and the data: the six character lines, "Sei fedi, sei caratteri", "Descrizione in arrivo" and every "fotografia in arrivo" label. Placeholders become silent neutral fields.
+  - Apply the typography corrections.
+  - Build the shared editorial action.
+  - Make navigation data-driven, with a flag per page for whether it is live.
+- **B — Homepage art direction**
+  - The new collection plates.
+  - The Matrimonio action.
+  - The Su misura link.
+  - The Services list.
+  - A brand-rhythm check with motion disabled.
+- **C — Collections page**
+  - Dossier cleanup.
+  - Anchors that match the homepage plates.
+  - The consolidated contact action.
+  - No duplicate temporary detail image.
+- **D — Internal pages, each built as a real page:**
+  1. Fedi & Matrimonio: wedding photography, the rings, Oro 18Kt / Platino / Titanio, the personalisation options, and the five-step process. No romantic copy.
+  2. Laboratorio & Su misura, plus the /personalizzazioni redirect.
+  3. La nostra storia.
+  4. Servizi.
+  5. Contatti.
 
-- Desktop (1024px and up): 3 × 2 grid with a 2rem gap, inside the standard page width.
-- Tablet (640–1023px): 2 columns.
-- Mobile (under 640px): 1 column of full-width squares. The whole square is the tap target. On tap there is a brief green rule as press feedback, then the page moves. Plates use the existing image "settle" reveal as they enter the screen.
-- Reduced motion: no scale and no crossfade. Only the static rule on focus.
+  Each page is planned for review before it is built.
+- **E — Final photography replacement and media direction.**
 
-## 4. Navigation architecture
+This Build covers Phases A–C. Phase D starts with Fedi & Matrimonio as its own reviewed step.
 
-New routes:
-- /fedi-matrimonio
-- /laboratorio-su-misura
-- /servizi
+## Technical notes
+- `site.ts`:
+  - `navItems` get `{ to, label, live }`;
+  - add `services` and `weddingProcess`;
+  - `character` is replaced by an optional `description` that shows only when filled.
+- `EditorialImage` loses its visible placeholder label.
+- A new collection plate grid replaces `CollectionsScene` (the sticky desktop index and mobile swipe row are removed).
+- A new `ServicesScene` lives in `src/components/home/`.
+- A new `EditorialAction` primitive.
+- AGENTS.md is updated: the only sticky composition is now the /collezioni index; collections render as the plate grid; nav visibility is controlled by `live`.
+- The routing test is updated.
 
-Existing routes: /collezioni, /storia, /contatti.
-
-/personalizzazioni becomes a permanent redirect to /laboratorio-su-misura.
-
-Desktop labels: COLLEZIONI · MATRIMONIO · LABORATORIO · STORIA · SERVIZI · CONTATTI. Page titles keep their full names ("Fedi & Matrimonio", "Laboratorio & Su misura").
-
-Six labels need a width check at 1024px. If they don't fit, the full menu is used from 1024 to 1279px.
-
-Header behaviour does not change: transparent over the Hero, solid ivory after it, never hidden. The mobile menu stays full-height, now with six items.
-
-The three new pages start as structured holding pages using only confirmed facts. They are not filled with invented copy.
-
-## 5. Racing Green usage map
-
-| Section | Treatment |
-|---|---|
-| Hero | photo, white nav |
-| Dal 1898 | ivory, green "Dal 1898" (kept) |
-| Collections | ivory, green hover rule and focus |
-| Materials | full green (kept) |
-| Workshop | ivory, black-and-white photo, green on link hover only |
-| Matrimonio | photo / ivory, no green |
-| Su misura | ivory, the small green Materiali heading (kept) |
-| Heritage | full green (kept) |
-| Services | ivory, no green |
-| Colophon | ivory |
-| Footer | green (kept) |
-
-Green appears, disappears and returns. There are never two green surfaces next to each other.
-
-## 6. Typography hierarchy
-
-- Display Bodoni only for: the Hero, "Dal 1898", the Heritage dates, and one title per page.
-- "Incastonatura" drops one step further, to the chapter size. Collection names on the plates use the new medium size.
-- "Parliamone." on Contatti drops from the largest display size to the next one down. Holding pages use the medium size.
-- Karla is used for all navigation, facts, services, captions and contact data. No body text is animated.
-
-## 7. Button / link system
-
-- A. Navigation link: the existing nav style and its active underline.
-- B. Editorial action: one shared component, text + a 40px line that extends on hover. Used for "Tutte le collezioni", "Il laboratorio", "La nostra storia", "Fedi & Matrimonio".
-- C. Contact action: the existing contact actions plus the WhatsApp button.
-
-On /collezioni, the six "Richiedi informazioni" links become one contact action under the dossiers (inside the colophon), plus a small type-C WhatsApp link in each dossier. That link uses Karla in muted grey.
-
-## 8. Preserve
-
-HeroScene, ManifestoScene, MaterialScene, CraftScene, PauseScene, PersonalisationScene, HeritageScene, ColophonScene, the header logic, EditorialImage, Reveal, the motion tokens, the site.ts image fields, the CollezioniPage structure, and the sticky index.
-
-## 9. Replace / refactor
-
-- CollectionsScene → the new collection grid (the old desktop index and mobile swipe row are deleted).
-- `character` is removed from the Collection type and the data. Its slot for Giulio's real copy is named `description?`, empty by default and shown only when filled.
-- The placeholder label inside EditorialImage is removed: the placeholder frame becomes silent.
-- On /collezioni: delete the "Descrizione in arrivo" note, consolidate the CTAs, and show the description only when it exists.
-- site.ts: new navItems and the redirect.
-- New editorial action component.
-- New routes: the three new pages plus the redirect route.
-- Update the AGENTS.md rules (collections grid, nav) and the routing test.
-
-## 10. Implementation order
-
-1. Copy cleanup: placeholder labels, character lines, "Descrizione in arrivo".
-2. Editorial action component and type size changes.
-3. The collection grid on Home with its hover, focus and tap behaviour.
-4. Fedi & Matrimonio link on the wedding photo; Su misura link target.
-5. The /collezioni dossier cleanup.
-6. Routes, navigation, redirect, holding pages, head metadata.
-7. Check at 1440, 1280, 1024, 768 and 390px; keyboard; reduced motion; tests.
-8. Services preview: only once the client supplies the list.
-
-## 11. Temporary photography strategy
-
-- The temporary renders fill the square plates with object-contain on a neutral field, with no labels and no filters.
-- The detail crossfade stays inactive until `detailImage` is a different file.
-- Final photography (square primary of about 2400px, plus detail) swaps in through site.ts only.
-- The renders' white background may show as a lighter square inside the ivory field. To avoid that, the plate field stays white until final photography arrives, and that is one token to change.
-
-## 12. Risks / regressions
-
-- Six nav labels at 1024px (fallback to the full menu).
-- The old /personalizzazioni links and the routing test need updating.
-- The Services and Matrimonio pages have no confirmed content (blocked on the client).
-- Removing the sticky homepage index changes the rule "the only sticky composition is the Collections index". After this change, only /collezioni keeps a sticky index.
-- The low-res renders (240px) look soft inside large squares. This is accepted for the mockup, per the brief.
+## Risks
+- Removing the homepage sticky index changes an established rule (recorded in AGENTS.md).
+- Six nav labels at 1024px.
+- The 240px temporary renders look soft at full plate size. This is accepted until the enhancement pass.
 - The WhatsApp number is still unconfirmed.
+- Until Phase D, the nav shows fewer than six items.
