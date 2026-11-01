@@ -32,7 +32,7 @@ export function CraftScene() {
             <p className="type-caption mt-10 border-t border-border pt-4 text-muted-foreground">
               Eugenio e Giulio Rocca, laboratorio di Lamezia Terme
             </p>
-            <Link to="/storia" className="type-nav link-draw mt-6 hover:text-primary">Storia</Link>
+            <div className="mt-6 flex gap-8"><Link to="/laboratorio-su-misura" className="type-nav link-draw hover:text-primary">Laboratorio</Link><Link to="/storia" className="type-nav link-draw hover:text-primary">Storia</Link></div>
           </div>
         </div>
       </div>

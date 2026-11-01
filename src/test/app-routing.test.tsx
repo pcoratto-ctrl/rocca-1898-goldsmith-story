@@ -19,4 +19,9 @@ describe("App routing", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
     expect(router.matchRoutes("/fedi-matrimonio").at(-1)?.routeId).toBe("/fedi-matrimonio");
   });
+
+  it("serves the Laboratorio & Su misura page", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/laboratorio-su-misura").at(-1)?.routeId).toBe("/laboratorio-su-misura");
+  });
 });

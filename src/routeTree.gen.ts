@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CollezioniRouteImport } from './routes/collezioni'
 import { Route as ContattiRouteImport } from './routes/contatti'
 import { Route as FediMatrimonioRouteImport } from './routes/fedi-matrimonio'
+import { Route as LaboratorioSuMisuraRouteImport } from './routes/laboratorio-su-misura'
 import { Route as PersonalizzazioniRouteImport } from './routes/personalizzazioni'
 import { Route as StoriaRouteImport } from './routes/storia'
 
@@ -36,6 +37,11 @@ const FediMatrimonioRoute = FediMatrimonioRouteImport.update({
   path: '/fedi-matrimonio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LaboratorioSuMisuraRoute = LaboratorioSuMisuraRouteImport.update({
+  id: '/laboratorio-su-misura',
+  path: '/laboratorio-su-misura',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PersonalizzazioniRoute = PersonalizzazioniRouteImport.update({
   id: '/personalizzazioni',
   path: '/personalizzazioni',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/collezioni': typeof CollezioniRoute
   '/contatti': typeof ContattiRoute
   '/fedi-matrimonio': typeof FediMatrimonioRoute
+  '/laboratorio-su-misura': typeof LaboratorioSuMisuraRoute
   '/personalizzazioni': typeof PersonalizzazioniRoute
   '/storia': typeof StoriaRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/collezioni': typeof CollezioniRoute
   '/contatti': typeof ContattiRoute
   '/fedi-matrimonio': typeof FediMatrimonioRoute
+  '/laboratorio-su-misura': typeof LaboratorioSuMisuraRoute
   '/personalizzazioni': typeof PersonalizzazioniRoute
   '/storia': typeof StoriaRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/collezioni': typeof CollezioniRoute
   '/contatti': typeof ContattiRoute
   '/fedi-matrimonio': typeof FediMatrimonioRoute
+  '/laboratorio-su-misura': typeof LaboratorioSuMisuraRoute
   '/personalizzazioni': typeof PersonalizzazioniRoute
   '/storia': typeof StoriaRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/collezioni'
     | '/contatti'
     | '/fedi-matrimonio'
+    | '/laboratorio-su-misura'
     | '/personalizzazioni'
     | '/storia'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/collezioni'
     | '/contatti'
     | '/fedi-matrimonio'
+    | '/laboratorio-su-misura'
     | '/personalizzazioni'
     | '/storia'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/collezioni'
     | '/contatti'
     | '/fedi-matrimonio'
+    | '/laboratorio-su-misura'
     | '/personalizzazioni'
     | '/storia'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   CollezioniRoute: typeof CollezioniRoute
   ContattiRoute: typeof ContattiRoute
   FediMatrimonioRoute: typeof FediMatrimonioRoute
+  LaboratorioSuMisuraRoute: typeof LaboratorioSuMisuraRoute
   PersonalizzazioniRoute: typeof PersonalizzazioniRoute
   StoriaRoute: typeof StoriaRoute
 }
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FediMatrimonioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/laboratorio-su-misura': {
+      id: '/laboratorio-su-misura'
+      path: '/laboratorio-su-misura'
+      fullPath: '/laboratorio-su-misura'
+      preLoaderRoute: typeof LaboratorioSuMisuraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/personalizzazioni': {
       id: '/personalizzazioni'
       path: '/personalizzazioni'
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   CollezioniRoute: CollezioniRoute,
   ContattiRoute: ContattiRoute,
   FediMatrimonioRoute: FediMatrimonioRoute,
+  LaboratorioSuMisuraRoute: LaboratorioSuMisuraRoute,
   PersonalizzazioniRoute: PersonalizzazioniRoute,
   StoriaRoute: StoriaRoute,
 }
