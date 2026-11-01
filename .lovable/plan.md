@@ -1,108 +1,53 @@
-# Phase D1 — /fedi-matrimonio
+# Phase D2 — /laboratorio-su-misura
 
-A real editorial page where the rings and the workshop lead and marriage is the context. It uses only confirmed facts, with no romantic copy. If nothing confirmed exists for a spot, the text is left out.
+A tactile, technical atelier page: the bench, the tools, the hand. It is quieter and more documentary than /fedi-matrimonio. It uses no wedding imagery and no collection renders. All copy uses confirmed facts only.
 
-Note: the uploaded brief ends at "Some secti…" in section 11, so anything after that point was not received. Send the rest if it adds rules.
+## Photography (real sizes, never enlarged)
 
-## Photography (approved images only, never shown larger than their real size)
-
-| Scene | Image | Size | Why |
+| Role | Image | Native | Max display |
 |---|---|---|---|
-| Opening | Hands with rings and rose bouquet (`hero`) | 1600×900 | A different, tighter crop focused on the hands and rings. It is not the full-screen homepage framing. |
-| Modelli | Six-model panorama, second version (`panoramica-modelli-fedi-2`, not used anywhere yet) | 1600×900 | A different image from the one opening /collezioni, so it doesn't repeat. |
-| Personalizzazioni | Bride showing rings (`sposa`) + gold texture detail (`texture`) | 800×1200, 992×1404 | The texture image comes back here only as a small detail beside its label, never large. |
-| Realizzazione | Black-and-white bench (`labBn`) + flame (`fiamma`) | 1200², 551×688 | The real laboratory. |
-| Photographic pause | Couple under the palms (`coppia-sposi-palme`, not used anywhere yet) | 593×889 | Portrait image. |
+| Primary workshop | laboratorio-lavorazione-bn | 1200×1200 | up to 1200px, square |
+| Bench work (secondary) | lavorazione-artigianale-banco | 600×315 | 600px wide, landscape strip |
+| Flame detail | laboratorio-fiamma | 551×688 | about 275px inset |
+| Finishing / polishing | lucidatura-laboratorio | 480×640 | 480px, 3:4 |
+| Finished result / pause | mani-con-fedi-verticale | 516×916 | 516px, centred on ivory |
+| Material detail | texture-fedi-oro | 992×1404 | about 280px inset |
+| Personalisation refs | diamanti 240, impronta 252, microtesto 252 | — | shown at about 1× (≤252px), square |
 
-The palms photo is only 593px wide, so a full-width version would mean enlarging it. Instead it sits centred on ivory at its real size. That still reads as a strong, quiet pause.
+The bench photo is only 600px wide, so it is never shown full width. It sits as a documentary print beside text.
 
 ## Page sequence
 
-### 1. Opening (about 85svh on desktop)
-- **Left (5 of 12 columns), ivory:**
-  - "ROCCA 1898" in small Karla, with a champagne hairline;
-  - "Fedi &" and "Matrimonio" in Bodoni on two lines: the one display title on the page;
-  - no paragraph and no button;
-  - the title sits low in the column, with the eye line on the image's horizon.
-- **Right (7 columns):** the hands photo, filling the column height, cropped toward the rings. No overlay.
-- **Mobile, as one composition rather than stacked halves:**
-  - the title comes first, set large across the full width;
-  - then the photo in 4:5, bleeding edge to edge;
-  - the photo rises a little under the bottom of the title, so the two lock together.
-- The solid ivory header shows from the start, as on all inner pages.
+1. **Opening.** Left (5 columns): small "ROCCA 1898" label with a hairline, then the title "Laboratorio & Su misura" in Bodoni, the page's one display moment. Right (7 columns): the black-and-white bench photo, square. The flame photo sits as a small inset, overlapping the lower edge. On mobile the title comes first, then the square photo edge to edge, then the flame inset offset right.
+2. **Al banco.** The bench-work photo at 600px beside a short confirmed line: "Ogni fede nasce a mano, nel laboratorio di famiglia, dove Eugenio e Giulio Rocca lavorano fianco a fianco." Below it, a caption in technical style: "Eugenio e Giulio Rocca, laboratorio di Lamezia Terme". No heading paragraph block.
+3. **Su misura: a technical sheet.** A ruled table in Karla. This is the atelier signature, like a workshop job sheet. Each row has a code (01–04), a name and a confirmed note, on hairline rows:
+   - 01 Incastonatura: Pietre interne o esterne, with the diamanti reference (240px) in the row
+   - 02 Incisioni: Nomi scritti a mano · Impronte · Simboli · Micro-testi, with the impronta and microtesto references (252px) side by side
+   - 03 Texture: Superfici lavorate a mano, with the texture inset (about 280px, 4:5)
+   - 04 Materiali: Oro 18Kt · Platino · Titanio (text only)
 
-### 2. Modelli
-- A horizontal panorama strip at its real width (up to 1600px).
-- Below it, the six names as one Karla line separated by thin dots: Classic · Hollow · Plate · Twist · Square · Waves. Each name links to its chapter on /collezioni.
-- "MODELLI" as a small label on the left.
-- Editorial action (type B): "Le collezioni" → /collezioni.
-- No cards and no descriptions.
+   The reference images sit at the right end of each row, at native size, framed with a thin hairline like specimen cards. On mobile each row stacks: code + name, note, then the images in a row.
+4. **Finitura.** The polishing photo (480px, 3:4) on the left, with the label "LUCIDATURA" set to its right in Karla capitals and a short vertical hairline. The label comes from the confirmed services list. No invented description.
+5. **Pause / finished result.** The vertical hands-with-rings photo, centred at 516px on ivory. No caption beyond alt text.
+6. **Contact ending.** The shared contact colophon, unchanged.
 
-### 3. Materiali (a different treatment from the green homepage scene)
-- White/ivory field, with three names as a large left-aligned index in Karla capitals, wide letter-spacing: ORO 18KT / PLATINO / TITANIO.
-- Each name sits on a full-width hairline row.
-- The single green element: the row rule under the first name is Racing Green, the others champagne. On hover, each rule turns green from left to right.
-- No icons, swatches or gradients.
+## Visual language (differs from Matrimonio)
+- More rules and grids: hairline tables, codes 01–04 in tabular Karla (not Bodoni numerals), small technical captions.
+- Bodoni appears once only (the title).
+- Racing Green appears only in the opening hairline, the row codes and link hovers. There are no green surfaces except the footer.
+- Motion: existing Reveal effects only (unveil on the opening photo, crossfade on insets). Text is not animated.
 
-### 4. Personalizzazioni (tight, wedding-specific)
-- One composition instead of four big blocks:
-  - the bride photo (4:5, left, 5 columns);
-  - beside it a typed fact sheet in Karla, as three short groups with green numerals:
-    - **Incastonatura:** Pietre interne o esterne
-    - **Incisioni:** Nomi scritti a mano · Impronte · Simboli · Micro-testi
-    - **Texture:** Superfici lavorate a mano
-  - the texture detail as a small 4:5 inset (around 240–300px wide) next to the Texture group.
-- Materials are not listed a fourth time (they already appear in Materiali). The sheet carries a "Materiali: Oro 18Kt · Platino · Titanio" footnote line.
-- No display type.
-
-### 5. The five-step process (the signature section)
-- **Desktop:** one long horizontal progression across the full width, five columns on one shared hairline:
-  - large Bodoni numerals 01–05, restrained and in Racing Green: the page's second Bodoni moment;
-  - under each numeral, the step name in Karla.
-  - A short champagne tick marks each step on the line.
-- No icons, no cards and no paragraphs.
-- Readable with all motion off. The only motion is a hairline that draws once across as the section enters the screen, and with reduced motion it is simply already drawn.
-- **Tablet:** two rows (3 + 2) on the same line system.
-- **Mobile:** a vertical progression. The numeral sits on the left with a vertical hairline, and the step name sits to its right. No carousel.
-
-### 6. Realizzazione artigianale
-- Heading "REALIZZAZIONE ARTIGIANALE" in Karla, ties visually to step 04 above.
-- The black-and-white bench photo large, square, 7 columns; the flame photo smaller at its real size, offset and lower. The arrangement differs from the homepage workshop scene: the images swap sides and there is no long text.
-- The "Il laboratorio" action → /laboratorio-su-misura appears only once that page is live.
-
-### 7. Photographic pause
-- The palms couple, centred, at its real size, with generous ivory around it. No caption text beyond the alt text, and no quote.
-
-### 8. Contact ending
-The shared contact colophon (direct phone, email and address, as on Home), unchanged. No booking, form or new WhatsApp action.
-
-## Racing Green on this page
-Green appears only as:
-- the opening hairline accent;
-- the first Materiali rule and its hover state;
-- the personalisation numerals;
-- the five process numerals;
-- link hover states.
-
-There are no green backgrounds; the footer is the only green surface. Ivory and photography lead.
-
-## Typography
-- Bodoni: the page title, plus the five process numerals.
-- Everything else is Karla: labels, collection names, materials, facts, step names, captions.
-- No scene uses the "small label + giant serif + paragraph + button" pattern.
-
-## Going live (part of this phase)
-- Mark /fedi-matrimonio as live in the site data and add the "Matrimonio" item to the header, mobile menu and footer, in its final position after Collezioni.
-- On the homepage, add the "Fedi & Matrimonio" editorial action under the wedding photo.
-- Give the page its own title and description (Italian, factual), with no share image tag (the hosting adds the preview).
+## Going live
+- Set `/laboratorio-su-misura` to live and add "Laboratorio" to the header, mobile menu and footer after Matrimonio.
+- Show the hidden "Il laboratorio" action on /fedi-matrimonio. Point the homepage Su misura/Texture link here (instead of /personalizzazioni), and add a link from the homepage workshop scene.
+- Make `/personalizzazioni` redirect to this page.
+- Give the page its own Italian title and description, with no share image.
 
 ## Technical notes
-- New route `src/routes/fedi-matrimonio.tsx`. The page lives in `src/components/matrimonio/`, one file per scene, all reading from `site.ts` (`collections`, `weddingProcess`, `personalisationAreas`).
-- Add `coppia` and `panoramica2` to `photos` in `src/components/home/images.ts`, with their real sizes.
-- Images go through `EditorialImage`. The pause and flame images keep their native max width.
-- The process line uses the existing `Reveal` "unveil" mask, with no new motion.
-- Update AGENTS.md (the new page module) and add a small routing test that /fedi-matrimonio resolves.
+- Route `src/routes/laboratorio-su-misura.tsx`; page in `src/components/laboratorio/LaboratorioPage.tsx`, reading from `site.ts` (`personalisationAreas`, `services`).
+- Upload `lavorazione-artigianale-banco`, `lucidatura-laboratorio`, `mani-con-fedi-verticale` and the three personalisation references with lovable-assets, and add them to `photos` with their real sizes.
+- All images go through `EditorialImage` with max-width caps equal to native width.
+- Update AGENTS.md (new page module) and add a routing test for the page.
 
-## Risks
-- The tighter opening crop of the hands photo needs checking at 1440 and 1920px so it never stretches beyond 1600px. Above that width the image column is capped and the ivory field widens.
-- Seven nav items (with Home in the mobile menu) still fit on desktop, since only four are live after this change.
+## Open points
+- The page has no confirmed text about polishing beyond the word "Lucidatura". The label stands alone unless you provide a sentence.
