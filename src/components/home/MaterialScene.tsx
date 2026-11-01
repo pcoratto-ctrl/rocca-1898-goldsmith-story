@@ -1,9 +1,9 @@
-/** Scene 4 — a quiet typographic material index on ink. No imagery until macro photography exists. */
+/** Scene 4 — the material index on Racing Green: a physical ROCCA brand surface. */
 const materials = ["Oro 18Kt", "Platino", "Titanio"] as const;
 
 export function MaterialScene() {
   return (
-    <section aria-labelledby="materiali-title" className="bg-ink text-primary-foreground">
+    <section aria-labelledby="materiali-title" className="bg-primary text-primary-foreground">
       <div className="wrap grid gap-10 py-[var(--section-y-sm)] lg:grid-cols-12 lg:py-[clamp(5rem,9vw,8.5rem)]">
         <h2 id="materiali-title" className="type-caption text-primary-foreground/55 lg:col-span-2 lg:col-start-2 lg:pt-6">
           Materiali
