@@ -1,6 +1,4 @@
-import { Link } from "@tanstack/react-router";
-import { EditorialAction } from "@/components/site/primitives";
-import { isLive, services } from "@/lib/site";
+import { services } from "@/lib/site";
 
 /** Scene 9 — confirmed services as a plain numbered list. Names only. */
 export function ServicesScene() {
@@ -16,13 +14,7 @@ export function ServicesScene() {
             </li>
           ))}
         </ol>
-        {isLive("/servizi") && (
-          <div className="mt-10 lg:col-span-7 lg:col-start-6">
-            <Link to={"/servizi" as "/"}>
-              <EditorialAction>Servizi</EditorialAction>
-            </Link>
-          </div>
-        )}
+        {/* "Servizi" editorial action is added when /servizi becomes live. */}
       </div>
     </section>
   );

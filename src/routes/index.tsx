@@ -7,6 +7,7 @@ import { CraftScene } from "@/components/home/CraftScene";
 import { PauseScene } from "@/components/home/PauseScene";
 import { PersonalisationScene } from "@/components/home/PersonalisationScene";
 import { HeritageScene } from "@/components/home/HeritageScene";
+import { ServicesScene } from "@/components/home/ServicesScene";
 import { ColophonScene } from "@/components/home/ColophonScene";
 
 export const Route = createFileRoute("/")({
@@ -41,6 +42,7 @@ function Home() {
       <PauseScene />
       <PersonalisationScene />
       <HeritageScene />
+      <ServicesScene />
       <ColophonScene />
     </>
   );
