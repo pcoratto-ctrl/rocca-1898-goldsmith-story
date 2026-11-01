@@ -485,3 +485,91 @@
     display: none;
   }
 }
+
+/* Editorial action: rule 40px -> 64px on hover/focus of the parent link */
+@utility editorial-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 48px;
+  transition: color 300ms var(--ease-atelier);
+  & .editorial-action-rule {
+    display: inline-block;
+    height: 1px;
+    width: 2.5rem;
+    background: currentColor;
+    transition: width 300ms var(--ease-atelier);
+  }
+  a:hover > & .editorial-action-rule,
+  a:focus-visible > & .editorial-action-rule,
+  &:hover .editorial-action-rule {
+    width: 4rem;
+  }
+}
+
+/* Collection vitrine plate: object first, green rule + cue on discovery */
+@utility vitrine {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  & .vitrine-img {
+    transition: transform 600ms var(--ease-atelier), opacity 500ms var(--ease-atelier);
+  }
+  & .vitrine-rule {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 600ms var(--ease-atelier);
+  }
+  & .vitrine-name {
+    color: color-mix(in oklab, var(--foreground) 62%, transparent);
+    transition: color 600ms var(--ease-atelier);
+  }
+  & .vitrine-cue {
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 600ms var(--ease-atelier), transform 600ms var(--ease-atelier);
+  }
+  & .vitrine-detail {
+    opacity: 0;
+  }
+  &:hover .vitrine-img,
+  &:focus-visible .vitrine-img {
+    transform: scale(1.035);
+  }
+  &:hover .vitrine-detail,
+  &:focus-visible .vitrine-detail {
+    opacity: 1;
+  }
+  &:hover .vitrine-rule,
+  &:focus-visible .vitrine-rule,
+  &:active .vitrine-rule {
+    transform: scaleX(1);
+  }
+  &:hover .vitrine-name,
+  &:focus-visible .vitrine-name {
+    color: var(--foreground);
+  }
+  &:hover .vitrine-cue,
+  &:focus-visible .vitrine-cue {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    & .vitrine-img,
+    & .vitrine-rule,
+    & .vitrine-name,
+    & .vitrine-cue {
+      transition: none;
+    }
+    &:hover .vitrine-img,
+    &:focus-visible .vitrine-img {
+      transform: none;
+    }
+  }
+}
