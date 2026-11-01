@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { EditorialImage, Reveal } from "@/components/site/primitives";
 import { useActiveIndex } from "@/hooks/use-reveal";
-import { collections, type Collection } from "@/lib/site";
+import { collections, hasDistinctDetail, type Collection } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { photos } from "./images";
 
@@ -95,11 +95,13 @@ function Plate({ c }: { c: Collection }) {
       <EditorialImage image={slot(c, "primary")} ratio={ratio} fit="contain" className="bg-white" placeholderLabel={`${c.name} — fotografia in arrivo`} sizes="45vw" />
     </Reveal>
   );
-  const D = (cls: string) => (
-    <Reveal effect="crossfade" delay={200} className={cls}>
-      <EditorialImage image={slot(c, "detail")} ratio="1 / 1" fit="contain" className="bg-white" placeholderLabel="Dettaglio" sizes="20vw" />
-    </Reveal>
-  );
+   // Detail slot hidden while it holds the same temporary render as the primary.
+   const D = (cls: string) =>
+     hasDistinctDetail(c) ? (
+       <Reveal effect="crossfade" delay={200} className={cls}>
+         <EditorialImage image={slot(c, "detail")} ratio="1 / 1" fit="contain" className="bg-white" placeholderLabel="Dettaglio" sizes="20vw" />
+       </Reveal>
+     ) : null;
   switch (c.layout) {
     case "centered":
       return (
