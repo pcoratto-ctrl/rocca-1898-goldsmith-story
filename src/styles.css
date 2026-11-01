@@ -379,6 +379,16 @@
   text-transform: uppercase;
 }
 
+/* Lead chapter word, ~18% below type-chapter — used once per section. */
+@utility type-chapter-l {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.875rem, 5.3vw, 5.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
 @utility type-caption {
   font-family: var(--font-sans);
   font-size: 0.8125rem;
