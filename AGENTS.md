@@ -22,4 +22,5 @@
 - Motion vocabulary is limited to the `effect` options on `Reveal` (mask-reveal, mask-reveal-up, settle, crossfade) plus the header morph; timings are fixed tokens (header 420ms, underline 300ms, masks 1000ms, hover zoom 1.025/650ms, collection crossfade 500ms) and body text is never animated; the only sticky scroll composition is the `/collezioni` index.
 - Homepage collections render as the square `vitrine` plate grid (3/2/1 columns, hairline gutters), each linking to `/collezioni#collezione-{slug}`; hover/focus motion lives in the `vitrine` utility.
 - Navigation renders only `navItems`; `siteArchitecture` lists the final pages with a `live` flag, and a page joins `navItems` (and gets a route file) only once its real designed page exists — no public holding pages.
+- `/fedi-matrimonio` lives in `src/components/matrimonio/MatrimonioPage.tsx` (opening, modelli, materiali, personalizzazioni, processo, realizzazione, pausa, shared `ColophonScene`) and reads only confirmed facts from `site.ts`.
 - Links use three families: nav (`link-draw`), editorial action (`EditorialAction`), contact (`ContactActions`/WhatsApp).

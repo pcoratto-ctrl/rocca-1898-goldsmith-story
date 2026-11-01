@@ -583,3 +583,65 @@
   letter-spacing: -0.005em;
   text-transform: uppercase;
 }
+
+/* Matrimonio — materials index rows: static rule + green hover draw */
+@utility material-row {
+  & .material-rule,
+  & .material-rule-hover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+  }
+  & .material-rule-hover {
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 600ms var(--ease-atelier);
+  }
+  &:hover .material-rule-hover {
+    transform: scaleX(1);
+  }
+}
+
+/* Matrimonio — process: shared hairline (vertical on mobile, horizontal from md) */
+@utility process-line {
+  & .process-step::before {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    top: 0.4rem;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  & .process-step::after {
+    content: "";
+    position: absolute;
+    left: calc(0.5rem - 3px);
+    top: 0.4rem;
+    width: 7px;
+    height: 1px;
+    background: var(--champagne);
+  }
+  & .process-step > span:first-child {
+    position: relative;
+  }
+  @media (min-width: 48rem) {
+    & .process-step::before {
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: auto;
+      width: auto;
+      height: 1px;
+    }
+    & .process-step::after {
+      left: 0;
+      top: -3px;
+      width: 1px;
+      height: 7px;
+    }
+  }
+}
