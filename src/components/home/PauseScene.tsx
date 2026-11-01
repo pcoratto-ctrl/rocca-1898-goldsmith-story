@@ -20,9 +20,6 @@ export function PauseScene() {
             className="absolute inset-0 h-full w-full object-cover object-[40%_center]"
           />
         </div>
-        <figcaption className="type-caption mt-4 px-[var(--gutter)] text-muted-foreground italic md:px-0">
-          Doppia esposizione
-        </figcaption>
       </Reveal>
       <div className="mx-auto mt-8 flex max-w-[1170px] justify-end px-[var(--gutter)] md:px-0">
         <Link to="/fedi-matrimonio">
