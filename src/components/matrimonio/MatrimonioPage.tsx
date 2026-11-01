@@ -183,7 +183,11 @@ function Realizzazione() {
           </Reveal>
         </div>
       </div>
-      {/* "Il laboratorio" action is added when /laboratorio-su-misura becomes live. */}
+      <div className="wrap mt-24 flex justify-end lg:mt-28">
+        <Link to="/laboratorio-su-misura">
+          <EditorialAction>Il laboratorio</EditorialAction>
+        </Link>
+      </div>
     </section>
   );
 }

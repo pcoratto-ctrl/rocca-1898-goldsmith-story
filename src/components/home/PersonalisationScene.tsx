@@ -48,7 +48,7 @@ export function PersonalisationScene() {
           <div className="lg:col-span-6 lg:col-start-7">
             <h3 className="type-nav">Texture</h3>
             <p className="type-caption mt-4 text-muted-foreground">Superfici lavorate a mano</p>
-            <Link to="/personalizzazioni" className="type-nav link-draw mt-12 gap-4 hover:text-primary">
+            <Link to="/laboratorio-su-misura" className="type-nav link-draw mt-12 gap-4 hover:text-primary">
               <span aria-hidden className="inline-block h-px w-10 bg-current" />
               Personalizzazioni
             </Link>

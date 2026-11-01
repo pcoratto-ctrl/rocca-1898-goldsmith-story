@@ -28,6 +28,7 @@ export function whatsappLink(message?: string) {
 export const navItems = [
   { to: "/collezioni", label: "Collezioni" },
   { to: "/fedi-matrimonio", label: "Matrimonio" },
+  { to: "/laboratorio-su-misura", label: "Laboratorio" },
   { to: "/storia", label: "Storia" },
   { to: "/contatti", label: "Contatti" },
 ] as const;
@@ -39,7 +40,7 @@ export const navItems = [
 export const siteArchitecture = [
   { to: "/collezioni", label: "Collezioni", title: "Collezioni", live: true },
   { to: "/fedi-matrimonio", label: "Matrimonio", title: "Fedi & Matrimonio", live: true },
-  { to: "/laboratorio-su-misura", label: "Laboratorio", title: "Laboratorio & Su misura", live: false },
+  { to: "/laboratorio-su-misura", label: "Laboratorio", title: "Laboratorio & Su misura", live: true },
   { to: "/storia", label: "Storia", title: "La nostra storia", live: true },
   { to: "/servizi", label: "Servizi", title: "Servizi", live: false },
   { to: "/contatti", label: "Contatti", title: "Contatti", live: true },
