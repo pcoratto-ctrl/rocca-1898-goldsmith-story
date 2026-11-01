@@ -29,7 +29,7 @@ function Opening() {
   return (
     <section aria-labelledby="matrimonio-title" className="pt-[var(--header-h-solid)]">
       <div className="lg:grid lg:min-h-[85svh] lg:grid-cols-[minmax(0,5fr)_minmax(0,min(58vw,1000px))]">
-        <div className="wrap relative z-10 flex flex-col justify-end pb-0 pt-12 lg:px-[var(--gutter)] lg:pb-[clamp(3rem,8vh,6rem)]">
+        <div className="wrap relative z-10 flex flex-col justify-end pb-10 pt-12 lg:px-[var(--gutter)] lg:pb-[clamp(3rem,8vh,6rem)]">
           <p className="type-label flex items-center gap-4 text-muted-foreground">
             <span aria-hidden className="inline-block h-px w-8 bg-primary" />
             ROCCA 1898
@@ -40,7 +40,7 @@ function Opening() {
             Matrimonio
           </h1>
         </div>
-        <div className="relative -mt-4 aspect-[4/5] overflow-hidden bg-surface lg:mt-0 lg:aspect-auto">
+        <div className="relative aspect-[4/5] overflow-hidden bg-surface lg:mt-0 lg:aspect-auto">
           <img
             src={p.src}
             alt={p.alt}
