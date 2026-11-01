@@ -21,7 +21,7 @@ function Contatti() {
   return (
     <section className="wrap pt-[calc(var(--header-h)+var(--section-y-sm))] section-y">
       <SectionLabel className="text-muted-foreground">Contatti</SectionLabel>
-      <h1 className="type-display-xl mt-8">Parliamone.</h1>
+      <h1 className="type-display-l mt-8">Parliamone.</h1>
       <address className="type-lead mt-8 not-italic text-muted-foreground">
         {contacts.address.street}, {contacts.address.city}, {contacts.address.country}
       </address>

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ColophonScene } from "@/components/home/ColophonScene";
 import { photos } from "@/components/home/images";
 import { EditorialImage, Reveal, SectionLabel } from "@/components/site/primitives";
-import { collections, hasDistinctDetail, whatsappLink, type Collection } from "@/lib/site";
+import { collections, hasDistinctDetail, type Collection } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -40,9 +40,6 @@ function Opening() {
       <Reveal effect="settle" className="mt-14">
         <EditorialImage image={photos.panoramica} ratio="16 / 9" sizes="(min-width: 1440px) 1440px, 100vw" />
       </Reveal>
-      <p className="type-caption mt-4 text-muted-foreground">
-        I sei modelli affiancati — fotografia temporanea in attesa del servizio fotografico.
-      </p>
     </section>
   );
 }
@@ -129,21 +126,10 @@ function Name({ c, className }: { c: Collection; className?: string }) {
   );
 }
 
-function Note({ className }: { className?: string }) {
-  return <p className={cn("type-caption text-muted-foreground", className)}>Descrizione in arrivo.</p>;
-}
-
-function ChapterCta({ c, className }: { c: Collection; className?: string }) {
-  return (
-    <a
-      href={whatsappLink(`Buongiorno, vorrei ricevere informazioni sulla collezione ${c.name}.`)}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={cn("type-nav link-draw self-start", className)}
-    >
-      Richiedi informazioni
-    </a>
-  );
+/** Client-approved description only; nothing is shown until it exists. */
+function Note({ c, className }: { c: Collection; className?: string }) {
+  if (!c.description) return null;
+  return <p className={cn("type-caption measure text-muted-foreground", className)}>{c.description}</p>;
 }
 
 /**
@@ -159,7 +145,6 @@ function Primary({ c, className, ratio = "4 / 5" }: { c: Collection; className?:
         ratio={ratio}
         fit="contain"
         className="bg-white"
-        placeholderLabel={`${c.name} — fotografia in arrivo`}
         sizes="(min-width: 1024px) 50vw, 90vw"
       />
     </Reveal>
@@ -181,7 +166,6 @@ function Detail({ c, className }: { c: Collection; className?: string }) {
           ratio="1 / 1"
           fit="contain"
           className="bg-white"
-          placeholderLabel="Dettaglio"
           sizes="(min-width: 1024px) 25vw, 45vw"
         />
       </Reveal>
@@ -197,10 +181,9 @@ function ChapterBody({ c }: { c: Collection }) {
         <div className="flex flex-col items-center text-center">
           <Num c={c} />
           <Name c={c} className="mt-4" />
-          <Note className="mt-4" />
+          <Note c={c} className="mt-4" />
           <Primary c={c} className="mt-14 w-full max-w-[26rem]" />
           <Detail c={c} className="mt-12 max-w-[20rem]" />
-          <ChapterCta c={c} className="mt-12 self-center" />
         </div>
       );
 
@@ -211,8 +194,7 @@ function ChapterBody({ c }: { c: Collection }) {
           <div className="flex flex-col items-start lg:col-span-4">
             <Num c={c} />
             <Name c={c} className="mt-4" />
-            <Note className="mt-4" />
-            <ChapterCta c={c} className="mt-10" />
+            <Note c={c} className="mt-4" />
           </div>
           <div className="relative mt-14 lg:col-span-8 lg:mt-0">
             <Primary c={c} className="ml-auto w-[78%] lg:w-[58%]" />
@@ -228,14 +210,11 @@ function ChapterBody({ c }: { c: Collection }) {
           <div className="flex flex-col items-start">
             <Num c={c} />
             <Name c={c} className="mt-4" />
-            <Note className="mt-4" />
+            <Note c={c} className="mt-4" />
           </div>
           <div className="mt-14 lg:grid lg:grid-cols-12 lg:items-end lg:gap-x-8">
             <Primary c={c} className="w-[85%] lg:col-span-5 lg:w-full" />
             <Detail c={c} className="mt-10 w-[40%] lg:col-span-3 lg:mt-0" />
-            <div className="mt-10 lg:col-span-3 lg:col-start-10 lg:mt-0">
-              <ChapterCta c={c} />
-            </div>
           </div>
         </div>
       );
@@ -247,8 +226,7 @@ function ChapterBody({ c }: { c: Collection }) {
           <div className="flex flex-col items-start lg:col-span-3 lg:col-start-2 lg:pt-28">
             <Num c={c} />
             <Name c={c} className="mt-4" />
-            <Note className="mt-4" />
-            <ChapterCta c={c} className="mt-10" />
+            <Note c={c} className="mt-4" />
           </div>
           <div className="mt-14 lg:col-span-7 lg:col-start-6 lg:mt-0">
             <Primary c={c} className="w-[80%] lg:w-[72%]" />
@@ -264,8 +242,7 @@ function ChapterBody({ c }: { c: Collection }) {
           <div className="flex flex-col items-start lg:max-w-[33%]">
             <Num c={c} />
             <Name c={c} className="mt-4" />
-            <Note className="mt-4" />
-            <ChapterCta c={c} className="mt-10" />
+            <Note c={c} className="mt-4" />
           </div>
           <div className="mt-14 grid grid-cols-2 items-start gap-4 lg:grid-cols-12 lg:gap-x-8">
             <Primary c={c} className="lg:col-span-4 lg:col-start-5" />
@@ -281,8 +258,7 @@ function ChapterBody({ c }: { c: Collection }) {
           <div className="flex flex-col items-start lg:col-span-3">
             <Num c={c} />
             <Name c={c} className="mt-4" />
-            <Note className="mt-4" />
-            <ChapterCta c={c} className="mt-10" />
+            <Note c={c} className="mt-4" />
           </div>
           <div className="mt-14 lg:col-span-9 lg:mt-0">
             <Primary c={c} className="w-full lg:ml-auto lg:w-[52%]" />

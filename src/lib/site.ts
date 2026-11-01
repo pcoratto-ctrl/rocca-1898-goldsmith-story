@@ -24,11 +24,38 @@ export function whatsappLink(message?: string) {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
+// Public navigation: only destinations with a designed page.
 export const navItems = [
   { to: "/collezioni", label: "Collezioni" },
-  { to: "/personalizzazioni", label: "Personalizzazioni" },
   { to: "/storia", label: "Storia" },
   { to: "/contatti", label: "Contatti" },
+] as const;
+
+/**
+ * Final architecture. Entries with `live: false` have no route yet and are
+ * never rendered; each moves into `navItems` when its real page is built.
+ */
+export const siteArchitecture = [
+  { to: "/collezioni", label: "Collezioni", title: "Collezioni", live: true },
+  { to: "/fedi-matrimonio", label: "Matrimonio", title: "Fedi & Matrimonio", live: false },
+  { to: "/laboratorio-su-misura", label: "Laboratorio", title: "Laboratorio & Su misura", live: false },
+  { to: "/storia", label: "Storia", title: "La nostra storia", live: true },
+  { to: "/servizi", label: "Servizi", title: "Servizi", live: false },
+  { to: "/contatti", label: "Contatti", title: "Contatti", live: true },
+] as const;
+
+export const isLive = (to: string) => siteArchitecture.some((p) => p.to === to && p.live);
+
+/** Confirmed service names. Descriptions only once client-approved. */
+export const services = ["Co-creazione", "Lucidatura", "Aggiornamenti", "Certificato", "Packaging"] as const;
+
+/** Confirmed wedding-ring process. */
+export const weddingProcess = [
+  "Ascolto e consulenza",
+  "Scelta modello/materiale",
+  "Personalizzazioni",
+  "Realizzazione artigianale",
+  "Consegna e cura",
 ] as const;
 
 // Temporary low-res model renders (240–400px): shown only at native size,
@@ -46,8 +73,8 @@ export type Collection = {
   slug: string;
   name: string;
   numeral: string;
-  /** Placeholder character line until the client supplies final copy. */
-  character: string;
+  /** Client-approved description; rendered only when present. */
+  description?: string;
   /** Composition of the collection plate (homepage) and chapter (/collezioni). */
   layout: "centered" | "wide" | "frontal" | "diagonal" | "grid" | "drift";
   /** Final 4:5 photography (≈2400×3000). Empty until the shoot: editorial placeholder. */
@@ -58,7 +85,7 @@ export type Collection = {
 
 const temp = (img: { url: string }, name: string, size: number): CollectionImage => ({
   src: img.url,
-  alt: `Modello ${name} — fotografia temporanea in attesa del servizio fotografico`,
+  alt: `Fedi ${name}, ROCCA 1898`,
   width: size,
   height: size,
 });
@@ -66,12 +93,12 @@ const temp = (img: { url: string }, name: string, size: number): CollectionImage
 // Temporary renders fill the final slots (mockup): primary 4:5 + detail 1:1.
 // Final photography (≈2400×3000 / ≈1600–2400) replaces these paths only.
 export const collections: Collection[] = [
-  { slug: "classic", name: "Classic", numeral: "01", character: "La forma essenziale della fede.", layout: "centered", primaryImage: temp(m07, "Classic", 400), detailImage: temp(m07, "Classic", 400) },
-  { slug: "hollow", name: "Hollow", numeral: "02", character: "Leggerezza ricavata dal pieno.", layout: "wide", primaryImage: temp(m04, "Hollow", 240), detailImage: temp(m04, "Hollow", 240) },
-  { slug: "plate", name: "Plate", numeral: "03", character: "Superfici piane, linee nette.", layout: "frontal", primaryImage: temp(m03, "Plate", 240), detailImage: temp(m03, "Plate", 240) },
-  { slug: "twist", name: "Twist", numeral: "04", character: "Due fili che si intrecciano.", layout: "diagonal", primaryImage: temp(m06, "Twist", 240), detailImage: temp(m06, "Twist", 240) },
-  { slug: "square", name: "Square", numeral: "05", character: "Un profilo deciso, geometrico.", layout: "grid", primaryImage: temp(m02, "Square", 240), detailImage: temp(m02, "Square", 240) },
-  { slug: "waves", name: "Waves", numeral: "06", character: "Il movimento dell'oro.", layout: "drift", primaryImage: temp(m05, "Waves", 240), detailImage: temp(m05, "Waves", 240) },
+  { slug: "classic", name: "Classic", numeral: "01", layout: "centered", primaryImage: temp(m07, "Classic", 400), detailImage: temp(m07, "Classic", 400) },
+  { slug: "hollow", name: "Hollow", numeral: "02", layout: "wide", primaryImage: temp(m04, "Hollow", 240), detailImage: temp(m04, "Hollow", 240) },
+  { slug: "plate", name: "Plate", numeral: "03", layout: "frontal", primaryImage: temp(m03, "Plate", 240), detailImage: temp(m03, "Plate", 240) },
+  { slug: "twist", name: "Twist", numeral: "04", layout: "diagonal", primaryImage: temp(m06, "Twist", 240), detailImage: temp(m06, "Twist", 240) },
+  { slug: "square", name: "Square", numeral: "05", layout: "grid", primaryImage: temp(m02, "Square", 240), detailImage: temp(m02, "Square", 240) },
+  { slug: "waves", name: "Waves", numeral: "06", layout: "drift", primaryImage: temp(m05, "Waves", 240), detailImage: temp(m05, "Waves", 240) },
 ];
 
 /**

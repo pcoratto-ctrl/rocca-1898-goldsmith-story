@@ -49,7 +49,6 @@ export function EditorialImage({
   position = "center",
   zoom,
   fit = "cover",
-  placeholderLabel,
 }: {
   image?: Img | undefined;
   ratio: string;
@@ -60,7 +59,6 @@ export function EditorialImage({
   zoom?: boolean;
   /** "contain" keeps the whole subject visible (jewellery renders on white). */
   fit?: "cover" | "contain";
-  placeholderLabel?: string;
 }) {
   return (
     <div
@@ -82,12 +80,18 @@ export function EditorialImage({
           style={{ objectPosition: position }}
         />
       ) : (
-        <div className="placeholder-frame absolute inset-0 flex items-end p-6" aria-hidden>
-          {placeholderLabel && (
-            <span className="type-label text-muted-foreground/70">{placeholderLabel}</span>
-          )}
-        </div>
+        <div className="placeholder-frame absolute inset-0" aria-hidden />
       )}
     </div>
+  );
+}
+
+/** Editorial action (link family B): text with a short rule that extends on hover. */
+export function EditorialAction({ children, className, tone = "default" }: { children: ReactNode; className?: string; tone?: "default" | "inverse" }) {
+  return (
+    <span className={cn("editorial-action type-nav", tone === "default" && "hover:text-primary", className)}>
+      <span aria-hidden className="editorial-action-rule" />
+      {children}
+    </span>
   );
 }
