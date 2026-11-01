@@ -64,12 +64,13 @@ They are shown at the final intended scale: never shrunk, never blurred, sharpen
 - **A. Navigation:** small, with the existing active underline.
 - **B. Editorial action:** text plus a short line that extends on hover (one shared component).
 - **C. Contact:** WhatsApp, phone, email (existing).
-- On /collezioni, the six repeated "Richiedi informazioni" links become a single quiet WhatsApp link per dossier plus the shared Colophon.
+- On /collezioni, the six repeated "Richiedi informazioni" links are removed, with no WhatsApp replacement (the number is unconfirmed). The chapters stay action-free and the shared Colophon remains the contact point.
 
 ## Navigation and routes
 - Final routes: /collezioni, /fedi-matrimonio, /laboratorio-su-misura, /storia, /servizi, /contatti.
 - Labels: COLLEZIONI · MATRIMONIO · LABORATORIO · STORIA · SERVIZI · CONTATTI.
-- **No public holding pages.** A label appears in the header, mobile menu and footer only when its page has a real designed structure. The new routes are prepared internally and added to the menu as each page is finished.
+- **Phase D routes are not created in this Build.** /fedi-matrimonio, /laboratorio-su-misura and /servizi exist only as `live: false` entries in the site data. They have no route files and stay hidden from the desktop, mobile and footer navigation.
+- **No public holding pages.** A label appears in the header, mobile menu and footer only when its page has a real designed structure.
 - /personalizzazioni redirects permanently to /laboratorio-su-misura once that page is live.
 - Behaviour is unchanged: transparent over the Hero, solid ivory after it, never hidden. The mobile menu is full-height. The width of six labels gets checked at 1024px; if they don't fit, that size falls back to the menu.
 
@@ -88,7 +89,7 @@ They are shown at the final intended scale: never shrunk, never blurred, sharpen
 - **C — Collections page**
   - Dossier cleanup.
   - Anchors that match the homepage plates.
-  - The consolidated contact action.
+  - Removal of the per-chapter contact links (no new WhatsApp links).
   - No duplicate temporary detail image.
 - **D — Internal pages, each built as a real page:**
   1. Fedi & Matrimonio: wedding photography, the rings, Oro 18Kt / Platino / Titanio, the personalisation options, and the five-step process. No romantic copy.
