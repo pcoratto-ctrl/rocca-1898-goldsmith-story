@@ -74,7 +74,7 @@ function AlBanco() {
           <div className="mt-8 max-w-[22rem] lg:mt-0">
             <p>Eugenio e Giulio Rocca lavorano insieme nello stesso laboratorio di famiglia.</p>
             <p className="type-caption mt-6 border-t border-border pt-4 text-muted-foreground">
-              Eugenio e Giulio Rocca, laboratorio di Lamezia Terme.
+              Laboratorio di Lamezia Terme
             </p>
           </div>
         </div>

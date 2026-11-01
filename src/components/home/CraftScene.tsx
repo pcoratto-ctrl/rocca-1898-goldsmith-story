@@ -24,7 +24,7 @@ export function CraftScene() {
           <div className="max-w-[24rem] lg:ml-[clamp(2rem,6vw,6rem)]">
             <h2 id="craft-title" className="type-h2">Il laboratorio</h2>
             <p className="mt-8">
-              Ogni fede nasce a mano, nel laboratorio di famiglia, dove Eugenio e Giulio Rocca lavorano fianco a fianco.
+              Eugenio e Giulio Rocca lavorano insieme nello stesso laboratorio di famiglia.
             </p>
             <p className="mt-5 text-muted-foreground">
               La tradizione artigianale italiana incontra le tecniche e gli standard dei grandi distretti orafi europei.
