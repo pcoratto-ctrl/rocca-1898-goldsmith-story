@@ -11,10 +11,9 @@ export function CollectionsScene() {
   return (
     <section aria-labelledby="collezioni-title" className="pb-[var(--section-y)]">
       <div className="wrap">
-        <div className="flex items-baseline justify-between gap-6 border-t border-border-strong pt-5">
-          <h2 id="collezioni-title" className="type-nav">Collezioni</h2>
-          <span className="type-caption text-muted-foreground">Sei fedi, sei caratteri</span>
-        </div>
+         <div className="flex items-baseline justify-between gap-6 border-t border-border-strong pt-5">
+           <h2 id="collezioni-title" className="type-nav">Collezioni</h2>
+         </div>
         <Reveal effect="settle" className="mx-auto mt-10 max-w-[1600px]">
           <EditorialImage image={photos.panoramica} ratio="16 / 9" sizes="(min-width: 1600px) 1600px, 100vw" />
         </Reveal>
@@ -52,7 +51,7 @@ function DesktopIndex() {
                   aria-current={i === active ? "true" : undefined}
                    className={cn(
                      "type-index block py-1 text-left transition-colors duration-500 ease-atelier",
-                     i === active ? "text-foreground" : "text-foreground/30 hover:text-foreground/50",
+                     i === active ? "text-primary" : "text-foreground/30 hover:text-foreground/50",
                    )}
                 >
                   {c.name}
@@ -62,7 +61,7 @@ function DesktopIndex() {
           </ol>
            <div className="relative mt-10 h-16" aria-live="polite">
              <div key={current.slug} className="animate-in fade-in duration-500 absolute inset-0 flex items-baseline gap-6">
-               <span className="type-numeral text-champagne">{current.numeral}</span>
+               <span className="type-numeral text-primary">{current.numeral}</span>
              </div>
            </div>
         </div>
@@ -178,8 +177,8 @@ function MobileSequence() {
            </article>
          ))}
       </div>
-      <div className="wrap mt-8 flex items-center gap-4">
-        <span className="type-numeral text-champagne">{String(i + 1).padStart(2, "0")}</span>
+       <div className="wrap mt-8 flex items-center gap-4">
+         <span className="type-numeral text-primary">{String(i + 1).padStart(2, "0")}</span>
         <span className="relative h-px flex-1 bg-border">
           <span
             className="absolute inset-y-0 left-0 bg-foreground transition-[width] duration-500 ease-atelier"
