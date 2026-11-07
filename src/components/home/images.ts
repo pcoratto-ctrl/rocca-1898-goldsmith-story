@@ -36,5 +36,5 @@ export const photos = {
   microtesto: { src: microtesto.url, alt: "Riferimento di micro-testo inciso su fede", width: 252, height: 252 },
   dettaglioMani: { src: dettaglioMani.url, alt: "Mani dell'orafo al banco che lavorano un anello sotto il microscopio", width: 1536, height: 1024 },
   macroMicroscopio: { src: macroMicroscopio.url, alt: "Lavorazione di precisione di una fede sotto il microscopio", width: 1024, height: 1536 },
-  ritrattoFamiglia: { src: ritrattoFamiglia.url, alt: "Fotografia di famiglia", width: 1152, height: 1536 },
+  ritrattoFamiglia: { src: ritrattoFamiglia.url, alt: "Giulio Rocca, a sinistra, ed Eugenio Rocca, a destra.", width: 1152, height: 1536 },
 } as const;

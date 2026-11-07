@@ -1,7 +1,7 @@
 import { ColophonScene } from "@/components/home/ColophonScene";
 import { photos } from "@/components/home/images";
 import { EditorialImage, Reveal } from "@/components/site/primitives";
-import { family, familyPortrait } from "@/lib/site";
+import { family } from "@/lib/site";
 
 /** /storia — documentary chapters from 1898 to today. Confirmed facts only. */
 export function StoriaPage() {
@@ -107,10 +107,7 @@ function ItaliaSvizzera() {
 }
 
 function Oggi() {
-  const confirmed = familyPortrait.confirmed;
-  const img = confirmed
-    ? { ...photos.ritrattoFamiglia, alt: "Eugenio e Giulio Rocca" }
-    : photos.banco;
+  const img = photos.ritrattoFamiglia;
   return (
     <section aria-labelledby="oggi-title" className="bg-primary text-primary-foreground">
       <div className="wrap grid items-center gap-y-12 py-[var(--section-y)] md:grid-cols-12 md:gap-x-8">
@@ -121,8 +118,8 @@ function Oggi() {
           </h2>
         </div>
         <Reveal effect="settle" className="md:col-span-5 md:row-start-1">
-          <div style={{ maxWidth: confirmed ? 520 : img.width }}>
-            <EditorialImage image={img} ratio={`${img.width} / ${img.height}`} sizes="(min-width:768px) 40vw, 100vw" />
+          <div style={{ maxWidth: 520 }} className="mx-auto md:mx-0">
+            <EditorialImage image={img} ratio="3 / 4" sizes="(min-width:768px) 40vw, 92vw" />
           </div>
         </Reveal>
       </div>

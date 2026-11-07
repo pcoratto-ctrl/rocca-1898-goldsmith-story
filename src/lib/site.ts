@@ -134,7 +134,7 @@ export const family = {
 } as const;
 
 /**
- * The two-person photograph is shown on /storia only once the client confirms
- * the people pictured are Eugenio and Giulio Rocca. Until then: bench photo.
+ * Client-confirmed: the two people pictured are Giulio Rocca (left, fifth
+ * generation) and Eugenio Rocca (right, fourth generation). Shown on /storia.
  */
-export const familyPortrait = { confirmed: false } as const;
+export const familyPortrait = { confirmed: true } as const;
