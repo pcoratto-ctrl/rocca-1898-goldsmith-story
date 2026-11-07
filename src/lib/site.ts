@@ -117,3 +117,24 @@ export const personalisationAreas = [
   { name: "Incisioni", note: "Nomi scritti a mano, impronte, simboli, micro-testi" },
   { name: "Texture", note: "Superfici lavorate a mano" },
 ] as const;
+
+/** Confirmed family facts for /storia. */
+export const family = {
+  eugenio: { numeral: "IV", name: "Eugenio Rocca", generation: "Quarta generazione" },
+  giulio: {
+    numeral: "V",
+    name: "Giulio Rocca",
+    generation: "Quinta generazione",
+    facts: [
+      { place: "Italia · Svizzera", fact: "Formazione tra Italia e Svizzera" },
+      { place: "Bulgari", fact: "Esperienza con Bulgari" },
+      { place: "Zurigo", fact: "Anni di lavoro a Zurigo" },
+    ],
+  },
+} as const;
+
+/**
+ * The two-person photograph is shown on /storia only once the client confirms
+ * the people pictured are Eugenio and Giulio Rocca. Until then: bench photo.
+ */
+export const familyPortrait = { confirmed: false } as const;

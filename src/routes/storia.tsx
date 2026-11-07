@@ -1,18 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HoldingPage } from "@/components/site/HoldingPage";
+import { StoriaPage } from "@/components/storia/StoriaPage";
 
 export const Route = createFileRoute("/storia")({
   head: () => ({
     meta: [
-      { title: "Storia — ROCCA 1898" },
-      { name: "description", content: "La famiglia Rocca, orafi dal 1898: Eugenio e Giulio, quarta e quinta generazione nello stesso laboratorio." },
-      { property: "og:title", content: "Storia — ROCCA 1898" },
-      { property: "og:description", content: "Cinque generazioni di orafi dal 1898." },
+      { title: "La nostra storia, dal 1898 — ROCCA 1898" },
+      { name: "description", content: "La tradizione orafa della famiglia Rocca ha inizio nel 1898. Oggi Eugenio e Giulio Rocca, quarta e quinta generazione, lavorano insieme a Lamezia Terme." },
+      { property: "og:title", content: "La nostra storia, dal 1898 — ROCCA 1898" },
+      { property: "og:description", content: "Eugenio e Giulio Rocca, quarta e quinta generazione, nello stesso laboratorio di famiglia." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: () => (
-    <HoldingPage label="Dal 1898" title="La nostra storia." intro="Cinque generazioni della famiglia Rocca. La pagina è in preparazione." />
-  ),
+  component: StoriaPage,
 });

@@ -13,6 +13,9 @@ import lucidatura from "@/assets/lucidatura-laboratorio.webp.asset.json";
 import maniVerticale from "@/assets/mani-con-fedi-verticale.webp.asset.json";
 import diamanti from "@/assets/personalizzazione-diamanti.webp.asset.json";
 import impronta from "@/assets/personalizzazione-impronta.webp.asset.json";
+import dettaglioMani from "@/assets/laboratorio-lavorazione-dettaglio-mani.webp.asset.json";
+import macroMicroscopio from "@/assets/laboratorio-macro-lavorazione-microscopio.webp.asset.json";
+import ritrattoFamiglia from "@/assets/storia-ritratto-due-persone-da-confermare.webp.asset.json";
 import microtesto from "@/assets/personalizzazione-microtesto-01.webp.asset.json";
 
 export const photos = {
@@ -31,4 +34,7 @@ export const photos = {
   diamanti: { src: diamanti.url, alt: "Riferimento di incastonatura con diamanti su fede", width: 240, height: 240 },
   impronta: { src: impronta.url, alt: "Riferimento di incisione di un'impronta digitale su fede", width: 252, height: 252 },
   microtesto: { src: microtesto.url, alt: "Riferimento di micro-testo inciso su fede", width: 252, height: 252 },
+  dettaglioMani: { src: dettaglioMani.url, alt: "Mani dell'orafo al banco che lavorano un anello sotto il microscopio", width: 1536, height: 1024 },
+  macroMicroscopio: { src: macroMicroscopio.url, alt: "Lavorazione di precisione di una fede sotto il microscopio", width: 1024, height: 1536 },
+  ritrattoFamiglia: { src: ritrattoFamiglia.url, alt: "Fotografia di famiglia", width: 1152, height: 1536 },
 } as const;

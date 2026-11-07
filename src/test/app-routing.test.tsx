@@ -24,4 +24,9 @@ describe("App routing", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
     expect(router.matchRoutes("/laboratorio-su-misura").at(-1)?.routeId).toBe("/laboratorio-su-misura");
   });
+
+  it("serves the Storia page", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/storia").at(-1)?.routeId).toBe("/storia");
+  });
 });
